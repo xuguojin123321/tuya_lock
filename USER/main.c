@@ -16,6 +16,7 @@
 /***************
 STM32F103C8T6最小单片机的freertos指纹锁
 作者：XGJ
+data : 2024/06/22 
 ***************/
 
 #define START_TASK_PRIO			1
