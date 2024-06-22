@@ -12,6 +12,7 @@
 #include "iwdg.h"
 #include "rtc.h"
 #include "wifi.h"
+#include "rc522.h"
 #include "stmflash.h"
 /***************
 STM32F103C8T6最小单片机的freertos指纹锁
@@ -80,6 +81,9 @@ int main(void)
 	OLED_Init();
 	OLED_Clear();
     flash_read();
+    RC522_Init();
+    PcdReset ();//RC522复位
+    M500PcdConfigISOType ( 'A' );//设置工作方式
 	usart3_init(115200);
 	wifi_protocol_init();
 	while(RTC_Init())		//RTC初始化	，一定要初始化成功
@@ -150,6 +154,7 @@ void led0_task(void *pvParameters)
             vTaskDelay(200);
             OPEN = 0;
         }
+        RC522_Handel();  //射频卡处理程序
 		vTaskDelay(50);
 	}
 }

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\SYSTEM\log;..\HARDWARE\KEY_16;..\HARDWARE\OLED;..\HARDWARE\fpm383c;..\HARDWARE\IWDG;..\HARDWARE\RTC;..\mcu_sdk;..\HARDWARE\uart3;..\HARDWARE\STMFLASH</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LED;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM3;..\SYSTEM\log;..\HARDWARE\KEY_16;..\HARDWARE\OLED;..\HARDWARE\fpm383c;..\HARDWARE\IWDG;..\HARDWARE\RTC;..\mcu_sdk;..\HARDWARE\uart3;..\HARDWARE\STMFLASH;..\HARDWARE\RC522</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -443,6 +443,11 @@
               <FileName>stmflash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\STMFLASH\stmflash.c</FilePath>
+            </File>
+            <File>
+              <FileName>rc522.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\RC522\rc522.c</FilePath>
             </File>
           </Files>
         </Group>
