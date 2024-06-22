@@ -57,4 +57,5 @@
 ..\obj\main.o: ..\mcu_sdk\mcu_api.h
 ..\obj\main.o: ..\mcu_sdk\wifi.h
 ..\obj\main.o: ..\mcu_sdk\lock_api.h
+..\obj\main.o: ..\HARDWARE\RC522\rc522.h
 ..\obj\main.o: ..\HARDWARE\STMFLASH\stmflash.h
