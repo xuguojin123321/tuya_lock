@@ -97,6 +97,7 @@ int main(void)
 	LOGD("init success\n");
 	LED0=0;
     OPEN = 0;
+    BEEP = 1;
 	xTaskCreate((TaskFunction_t		)start_task,
 							(const char*			)"start_task",
 							(uint16_t					)START_STK_SIZE,
@@ -309,6 +310,10 @@ static void keypassword_open_process()
     while(time > 0)
     {
         KEY_Read(&value);
+        if(value == 10)
+        {
+            return;
+        }
         if(value != -1)
         {
             buf[count] = '0' + value;

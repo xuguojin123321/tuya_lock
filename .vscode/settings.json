@@ -9,6 +9,7 @@
         "wifi.h": "c",
         "system.h": "c",
         "protocol.h": "c",
-        "rtc.h": "c"
+        "rtc.h": "c",
+        "key.h": "c"
     }
 }

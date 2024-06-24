@@ -7,8 +7,8 @@
 /**
  * @file    protocol.c
  * @author  涂鸦综合协议开发组
- * @version v1.0.7
- * @date    2020.11.9
+ * @version v2.5.6
+ * @date    2020.12.16
  * @brief                
  *                       *******非常重要，一定要看哦！！！********
  *          1. 用户在此文件中实现数据下发/上报功能
@@ -16,8 +16,10 @@
  *          3. 当开始某些宏定义后需要用户实现代码的函数内部有#err提示,完成函数后请删除该#err
  */
 
-
-#include "wifi.h"
+/****************************** 免责声明 ！！！ *******************************
+由于MCU类型和编译环境多种多样，所以此代码仅供参考，用户请自行把控最终代码质量，
+涂鸦不对MCU功能结果负责。
+******************************************************************************/
 
 /******************************************************************************
                                 移植须知:
@@ -26,12 +28,47 @@
 3:请勿在中断/定时器中断内调用上报函数
 ******************************************************************************/
 
-         
+#include "wifi.h"
+#include "led.h"
+#include "log.h"
+
+#ifdef WEATHER_ENABLE
+/**
+ * @var    weather_choose
+ * @brief  天气数据参数选择数组
+ * @note   用户可以自定义需要的参数，注释或者取消注释即可，注意更改
+ */
+const char *weather_choose[WEATHER_CHOOSE_CNT] = {
+    "temp",
+    "humidity",
+    "condition",
+    "pm25",
+    /*"pressure",
+    "realFeel",
+    "uvi",
+    "tips",
+    "windDir",
+    "windLevel",
+    "windSpeed",
+    "sunRise",
+    "sunSet",
+    "aqi",
+    "so2 ",
+    "rank",
+    "pm10",
+    "o3",
+    "no2",
+    "co",
+    "conditionNum",*/
+};
+#endif
+
+
 /******************************************************************************
                               第一步:初始化
 1:在需要使用到wifi相关文件的文件中include "wifi.h"
 2:在MCU初始化中调用mcu_api.c文件中的wifi_protocol_init()函数
-3:将MCU串口单字节发送函数填入protocol.c文件中uart_transmit_output函数内,并删除//#error
+3:将MCU串口单字节发送函数填入protocol.c文件中uart_transmit_output函数内,并删除#error
 4:在MCU串口接收函数中调用mcu_api.c文件内的uart_receive_input函数,并将接收到的字节作为参数传入
 5:单片机进入while循环后调用mcu_api.c文件内的wifi_uart_service()函数
 ******************************************************************************/
@@ -64,19 +101,19 @@ const DOWNLOAD_CMD_S download_cmd[] =
  * @brief  串口发送数据
  * @param[in] {value} 串口要发送的1字节数据
  * @return Null
- * @note   请将MCU串口发送函数填入该函数内,并将接收到的数据作为参数传入串口发送函数
  */
 void uart_transmit_output(unsigned char value)
 {
-    //#error "请将MCU串口发送函数填入该函数,并删除该行"
     printf("===%c\r\n",value);
+//    #error "请将MCU串口发送函数填入该函数,并删除该行"
     UART3_SendByte(value);
 /*
-    //示例:
+    //Example:
     extern void Uart_PutChar(unsigned char value);
     Uart_PutChar(value);	                                //串口发送函数
 */
 }
+
 /******************************************************************************
                            第二步:实现具体用户函数
 1:APP下发数据处理
@@ -103,8 +140,8 @@ void uart_transmit_output(unsigned char value)
  */
 void all_data_update(void)
 {
-    //#error "请在此处理可下发可上报数据及只上报数据示例,处理完成后删除该行"
-    /* 
+//    #error "请在此处理可下发可上报数据及只上报数据示例,处理完成后删除该行"
+    /*
     //此代码为平台自动生成，请按照实际数据修改每个可下发可上报函数和只上报函数
     mcu_dp_value_update(DPID_UNLOCK_FINGERPRINT,当前指纹解锁); //VALUE型数据上报;
     mcu_dp_value_update(DPID_UNLOCK_PASSWORD,当前普通密码解锁); //VALUE型数据上报;
@@ -119,12 +156,6 @@ void all_data_update(void)
     */
 }
 
-
-/******************************************************************************
-                                WARNING!!!    
-                            2:所有数据上报处理
-自动化代码模板函数,具体请用户自行实现数据处理
-******************************************************************************/
 /*****************************************************************************
 函数名称 : dp_download_remote_no_dp_key_handle
 功能描述 : 针对DPID_REMOTE_NO_DP_KEY的处理函数
@@ -137,6 +168,12 @@ static unsigned char dp_download_remote_no_dp_key_handle(const unsigned char val
 {
     //示例:当前DP类型为RAW
     unsigned char ret;
+
+    LOGD("123321");
+    OPEN = 1;
+    vTaskDelay(200);
+    OPEN = 0;
+
     /*
     //RAW type data processing
     
@@ -149,6 +186,11 @@ static unsigned char dp_download_remote_no_dp_key_handle(const unsigned char val
     else
         return ERROR;
 }
+/******************************************************************************
+                                WARNING!!!    
+                            2:所有数据上报处理
+自动化代码模板函数,具体请用户自行实现数据处理
+******************************************************************************/
 /*****************************************************************************
 函数名称 : dp_download_lock_motor_state_handle
 功能描述 : 针对DPID_LOCK_MOTOR_STATE的处理函数
@@ -166,9 +208,12 @@ static unsigned char dp_download_lock_motor_state_handle(const unsigned char val
     
     lock_motor_state = mcu_get_dp_download_bool(value,length);
     if(lock_motor_state == 0) {
-        //bool off
+        LOGD("===123\n");
     }else {
-        //bool on
+        LOGD("===456\n");
+        OPEN = 1;
+    vTaskDelay(200);
+    OPEN = 0;
     }
   
     //There should be a report after processing the DP
@@ -179,8 +224,8 @@ static unsigned char dp_download_lock_motor_state_handle(const unsigned char val
         return ERROR;
 }
 /*****************************************************************************
-函数名称 : dp_download_initiative_message_handle
-功能描述 : 针对DPID_INITIATIVE_MESSAGE的处理函数
+函数名称 : dp_download_countdown_fan_handle
+功能描述 : 针对DPID_COUNTDOWN_FAN的处理函数
 输入参数 : value:数据源数据
         : length:数据长度
 返回参数 : 成功返回:SUCCESS/失败返回:ERROR
@@ -194,7 +239,6 @@ static unsigned char dp_download_initiative_message_handle(const unsigned char v
     //RAW type data processing
     
     */
-    
     //There should be a report after processing the DP
     ret = mcu_dp_raw_update(DPID_INITIATIVE_MESSAGE,value,length);
     if(ret == SUCCESS)
@@ -209,8 +253,9 @@ static unsigned char dp_download_initiative_message_handle(const unsigned char v
 
 /******************************************************************************
                                 WARNING!!!                     
-以下函数用户请勿修改!!
+此部分函数用户请勿修改!!
 ******************************************************************************/
+
 /**
  * @brief  dp下发处理函数
  * @param[in] {dpid} dpid 序号
@@ -243,9 +288,9 @@ unsigned char dp_download_handle(unsigned char dpid,const unsigned char value[],
             ret = dp_download_initiative_message_handle(value,length);
         break;
 
-
-      default:
-      break;
+        
+        default:
+        break;
     }
     return ret;
 }
@@ -260,7 +305,6 @@ unsigned char get_download_cmd_total(void)
 {
     return(sizeof(download_cmd) / sizeof(download_cmd[0]));
 }
-
 
 
 /******************************************************************************
@@ -402,7 +446,7 @@ void wifi_update_handle(unsigned char status)
  */
 void mcu_update_request(void)
 { 
-    wifi_uart_write_frame(MCU_UG_REQ_CMD, 0);
+    //wifi_uart_write_frame(MCU_UG_REQ_CMD, 0);
 }
 
 /**
@@ -458,9 +502,11 @@ unsigned char mcu_firm_update_handle(const unsigned char value[],unsigned long p
 {
     //#error "请自行完成MCU固件升级代码,完成后请删除该行"
     if(length == 0) {
-        //固件数据发送完成
+        //文件包数据发送完成
+        
     }else {
-        //固件数据处理
+        //文件包数据处理
+      
     }
     
     return SUCCESS;
@@ -487,8 +533,9 @@ void mcu_sn_updata_result(unsigned char result)
 
 #ifdef WIFI_RESET_NOTICE_ENABLE
 /**
- * @brief  模块重置状态通知
- * @param[in] {result} 状态结果
+ * @brief  蓝牙功能性测试结果
+ * @param[in] {value} 数据缓冲区
+ * @param[in] {length} 数据长度
  * @return Null
  * @note   MCU需要先自行调用mcu_sn_updata函数后，在此函数对接收的结果进行处理
  */
@@ -518,6 +565,7 @@ void wifi_reset_notice(unsigned char result)
     wifi_uart_write_frame(WIFI_RESET_NOTICE_CMD, 0);
 }
 #endif
+
 
 
 

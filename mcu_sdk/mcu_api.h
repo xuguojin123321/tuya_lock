@@ -7,16 +7,19 @@
 /**
  * @file    mcu_api.h
  * @author  涂鸦综合协议开发组
- * @version v1.0.7
- * @date    2020.11.9
+ * @version v2.5.6
+ * @date    2020.12.16
  * @brief   用户需要主动调用的函数都在该文件内
  */
 
+/****************************** 免责声明 ！！！ *******************************
+由于MCU类型和编译环境多种多样，所以此代码仅供参考，用户请自行把控最终代码质量，
+涂鸦不对MCU功能结果负责。
+******************************************************************************/
 
 #ifndef __MCU_API_H_
 #define __MCU_API_H_
 
-#include "wifi.h"
 
 #ifdef MCU_API_GLOBAL
   #define MCU_API_EXTERN
@@ -91,7 +94,6 @@ void int_to_byte(unsigned long number,unsigned char value[4]);
  */
 unsigned long byte_to_int(const unsigned char value[4]);
 
-
 /**
  * @brief  raw型dp数据上传
  * @param[in] {dpid} dpid号
@@ -148,6 +150,64 @@ unsigned char mcu_dp_enum_update(unsigned char dpid,unsigned char value);
  */
 unsigned char mcu_dp_fault_update(unsigned char dpid,unsigned long value);
 
+#ifdef MCU_DP_UPLOAD_SYN
+/**
+ * @brief  raw型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @param[in] {len} 数据长度
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_raw_update_syn(unsigned char dpid,const unsigned char value[],unsigned short len);
+
+/**
+ * @brief  bool型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_bool_update_syn(unsigned char dpid,unsigned char value);
+
+/**
+ * @brief  value型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_value_update_syn(unsigned char dpid,unsigned long value);
+
+/**
+ * @brief  string型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @param[in] {len} 数据长度
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_string_update_syn(unsigned char dpid,const unsigned char value[],unsigned short len);
+
+/**
+ * @brief  enum型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_enum_update_syn(unsigned char dpid,unsigned char value);
+
+/**
+ * @brief  fault型dp数据同步上传
+ * @param[in] {dpid} dpid号
+ * @param[in] {value} 当前dp值指针
+ * @return Null
+ * @note   Null
+ */
+unsigned char mcu_dp_fault_update_syn(unsigned char dpid,unsigned long value);
+#endif
+
 /**
  * @brief  mcu获取bool型下发dp值
  * @param[in] {value} dp数据缓冲区地址
@@ -184,6 +244,15 @@ unsigned long mcu_get_dp_download_value(const unsigned char value[],unsigned sho
 void uart_receive_input(unsigned char value);
 
 /**
+ * @brief  串口接收多个字节数据暂存处理
+ * @param[in] {value} 串口要接收的数据的源地址
+ * @param[in] {data_len} 串口要接收的数据的数据长度
+ * @return Null
+ * @note   如需要支持一次多字节缓存，可调用该函数
+ */
+void uart_receive_buff_input(unsigned char value[], unsigned short data_len);
+
+/**
  * @brief  wifi串口数据处理服务
  * @param  Null
  * @return Null
@@ -198,21 +267,6 @@ void wifi_uart_service(void);
  * @note   在MCU初始化代码中调用该函数
  */
 void wifi_protocol_init(void);
-
-
-/**
- * @brief  记录型数据组合上报
- * @param[in] {time} 时间数据长度7，首字节表示是否传输标志位，其余依次为年、月、日、时、分、秒
- * @param[in] {dp_node} dp数据结构，需要在调用此函数之前，创建一个此结构体类型的数组，数组长度为dp个数，
-                                    将记录型dp数据缓存到此结构体中，dp值需要根据dp的数据类型，存入到对应类型的结构体成员中
- * @param[in] {dp_node_num} dp个数
- * @return 结果
- * -           0(ERROR): 失败
- * -           1(SUCCESS): 成功
- * @note   MCU需要自行调用该函数
- */
-unsigned char dp_record_combine_update(unsigned char time[], t_DP_NODE dp_node[], unsigned char dp_node_num);
-
 
 #ifndef WIFI_CONTROL_SELF_MODE
 /**
@@ -274,25 +328,24 @@ void mcu_set_wifi_mode(unsigned char mode);
 unsigned char mcu_get_wifi_work_state(void);
 #endif
 
-#ifdef SUPPORT_MCU_RTC_CHECK
-/**
- * @brief  MCU获取本地时间,用于校对本地时钟
- * @param  Null
- * @return Null
- * @note   MCU主动调用完成后在 mcu_write_rtctime 函数内校对rtc时钟
- */
-void mcu_get_system_time(void);
-#endif
-
 #ifdef SUPPORT_GREEN_TIME
 /**
- * @brief  MCU获取格林时间,用于校对本地时钟
+ * @brief  MCU获取格林时间
  * @param  Null
  * @return Null
- * @note   MCU主动调用完成后在 mcu_write_gltime 函数内记录并计算格林时间，
-           用于门锁类时间戳校验
+ * @note   MCU需要自行调用该功能
  */
-void mcu_get_gelin_time(void);
+void mcu_get_green_time(void);
+#endif
+
+#ifdef SUPPORT_MCU_RTC_CHECK
+/**
+ * @brief  MCU获取系统时间,用于校对本地时钟
+ * @param  Null
+ * @return Null
+ * @note   MCU主动调用完成后在mcu_write_rtctime函数内校对rtc时钟
+ */
+void mcu_get_system_time(void);
 #endif
 
 #ifdef WIFI_TEST_ENABLE
@@ -305,36 +358,183 @@ void mcu_get_gelin_time(void);
 void mcu_start_wifitest(void);
 #endif
 
+#ifdef WIFI_HEARTSTOP_ENABLE
 /**
- * @brief  MCU请求wifi固件升级
+ * @brief  通知WIFI模组关闭心跳
  * @param  Null
- * @return Null
- * @note   MCU主动调用完成后在 wifi_update_handle 函数内可获取升级当前状态
- */
-void wifi_update_request(void);
-
-#ifdef DP_CACHE_SUPPORT
-/**
- * @brief  获取dp缓存指令
- * @param[in] {table} dp表，存放用户需要查询的dp，如果用户需要查询所有dp，则table直接填NULL即可
- * @param[in] {dp_num} 需要查询的dp的数量,如果需要查询所有dp，则dp_num填0即可
  * @return Null
  * @note   MCU需要自行调用该功能
  */
-void get_dp_cache(unsigned char *table,unsigned char dp_num);
+void wifi_heart_stop(void);
 #endif
 
-#ifdef REPORTED_MCU_SN_ENABLE
+#ifdef GET_WIFI_STATUS_ENABLE
 /**
- * @brief  MCU上报SN
- * @param[in] {sn} SN号
- * @param[in] {sn_len} SN号长度
+ * @brief  获取当前wifi联网状态
+ * @param  Null
  * @return Null
- * @note   MCU需要自行调用后，可在 mcu_sn_updata_result 函数中对结果进行处理
+ * @note   MCU需要自行调用该功能
  */
-void mcu_sn_updata(unsigned char sn[],unsigned char sn_len);
+void mcu_get_wifi_connect_status(void);
 #endif
 
+#ifdef WIFI_STREAM_ENABLE
+/**
+ * @brief  流服务发送
+ * @param[in] {id} ID号
+ * @param[in] {buffer} 发送包的地址
+ * @param[in] {buf_len} 发送包长度
+ * @return 流服务传输结果
+ * -           0(ERROR): 失败
+ * -           1(SUCCESS): 成功
+ * @note   MCU需要自行实现该功能
+ */
+unsigned char stream_trans_send(unsigned int id, unsigned char *buffer, unsigned long buf_len);
 
+/**
+ * @brief  多地图流服务发送
+ * @param[in] {id} 地图流服务会话ID
+ * @param[in] {sub_id} 子地图ID
+ * @param[in] {sub_id_pro_mode} 子地图ID数据处理方式
+ * @ref       0x00: 继续累加
+ * @ref       0x01: 清除上传的数据
+ * @param[in] {buffer} 数据包发送的地址
+ * @param[in] {buf_len} 数据包发送的长度
+ * @return 流服务传输结果
+ * -           0(ERROR): 失败
+ * -           1(SUCCESS): 成功
+ * @note   MCU需要自行实现该功能
+ */
+unsigned char maps_stream_trans_send(unsigned int id, unsigned char sub_id, unsigned char sub_id_pro_mode, unsigned char *buffer, unsigned long buf_len);
+#endif
+
+#ifdef WIFI_CONNECT_TEST_ENABLE
+/**
+ * @brief  mcu发起wifi功能测试(连接指定路由)
+ * @param[in] {ssid_buf} 存放路由器名称字符串数据的地址(ssid长度最大支持32个字节)
+ * @param[in] {passwd_buffer} 存放路由器名称字符串数据的地址(passwd长度最大支持64个字节)
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void mcu_start_connect_wifitest(unsigned char *ssid_buf,unsigned char *passwd_buffer);
+#endif
+
+#ifdef GET_MODULE_MAC_ENABLE
+/**
+ * @brief  获取模块MAC
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void mcu_get_module_mac(void);
+#endif
+
+#ifdef IR_TX_RX_TEST_ENABLE
+/**
+ * @brief  mcu发起红外进入收发产测
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void mcu_start_ir_test(void);
+#endif
+
+#ifdef MODULE_EXPANDING_SERVICE_ENABLE
+/**
+ * @brief  打开模块时间服务通知
+ * @param[in] {time_type} 时间类型
+ * @ref       0x00: 格林时间
+ * @ref       0x01: 本地时间
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void open_module_time_serve(unsigned char time_type);
+
+/**
+ * @brief  主动请求天气服务数据
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void request_weather_serve(void);
+
+/**
+ * @brief  打开模块重置状态通知
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void open_module_reset_state_serve(void);
+#endif
+
+#ifdef BLE_RELATED_FUNCTION_ENABLE
+/**
+ * @brief  mcu发起蓝牙功能性测试（扫描指定蓝牙信标）
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void mcu_start_BLE_test(void);
+#endif
+
+#ifdef VOICE_MODULE_PROTOCOL_ENABLE
+/**
+ * @brief  获取语音状态码
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void get_voice_state(void);
+
+/**
+ * @brief  MIC静音设置
+ * @param[in] {set_val} 静音设置值
+ * @ref       0x00: mic开启
+ * @ref       0x01: mic静音
+ * @ref       0xA0: 查询静音状态
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void set_voice_MIC_silence(unsigned char set_val);
+
+/**
+ * @brief  speaker音量设置
+ * @param[in] {set_val} 音量设置值
+ * @ref       0~10: 音量范围
+ * @ref       0xA0: 查询音量值
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void set_speaker_voice(unsigned char set_val);
+
+/**
+ * @brief  音频产测
+ * @param[in] {set_val} 音频产测值
+ * @ref       0x00: 关闭音频产测
+ * @ref       0x01: mic1音频环路测试
+ * @ref       0x02: mic2音频环路测试
+ * @ref       0xA0: 查询当前产测状态
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void voice_test(unsigned char test_val);
+
+/**
+ * @brief  唤醒产测
+ * @param  Null
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void voice_awaken_test(void);
+
+/**
+ * @brief  语音模组MCU功能设置
+ * @param[in] {play} 播放/暂停功能 1(播放) / 0(暂停)
+ * @param[in] {bt_play} 蓝牙开关功能 1(开) / 0(关)
+ * @return Null
+ * @note   MCU需要自行调用该功能
+ */
+void voice_mcu_fun_set(unsigned char play, unsigned char bt_play);
+#endif
 
 #endif

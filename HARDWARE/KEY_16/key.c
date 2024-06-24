@@ -8,7 +8,7 @@
 
 
 #include "key.h"
-
+#include "led.h"
 
 void KEY_UserConfig(void){
 
@@ -237,5 +237,11 @@ void KEY_Read(int8_t *key){
 	
 	}
     *key = switch_keyvalue(*key);
+	if(*key != -1)
+	{
+		BEEP = 0;
+		delay_ms(50);
+		BEEP = 1;
+	}
     
 }

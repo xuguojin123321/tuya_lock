@@ -15,6 +15,7 @@
 ////////////////////////////////////////////////////////////////////////////////// 
 #define LED0 PCout(13)// PB5
 #define OPEN PBout(0)// PB5
+#define BEEP PBout(1)// PB5
 void LED_Init(void);//≥ı ºªØ
 
 		 				    

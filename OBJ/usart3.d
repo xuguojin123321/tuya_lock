@@ -32,8 +32,7 @@
 ..\obj\usart3.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\usart3.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\usart3.o: ..\mcu_sdk\wifi.h
+..\obj\usart3.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\usart3.o: ..\mcu_sdk\protocol.h
 ..\obj\usart3.o: ..\mcu_sdk\system.h
 ..\obj\usart3.o: ..\mcu_sdk\mcu_api.h
-..\obj\usart3.o: ..\mcu_sdk\wifi.h
-..\obj\usart3.o: ..\mcu_sdk\lock_api.h

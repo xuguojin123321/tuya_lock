@@ -31,3 +31,4 @@
 ..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\key.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\key.o: ..\SYSTEM\delay\delay.h
+..\obj\key.o: ..\HARDWARE\LED\led.h

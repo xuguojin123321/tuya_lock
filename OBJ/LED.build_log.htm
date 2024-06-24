@@ -21,22 +21,54 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-D:\4.diy\门锁\FreeRTOS移植工程\USER\LED.uvprojx
-Project File Date:  06/22/2024
+d:\4.diy\门锁\FreeRTOS移植工程\USER\LED.uvprojx
+Project File Date:  06/23/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LED'
-compiling rc522.c...
+compiling main.c...
 ..\SYSTEM\log\log.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
-..\HARDWARE\RC522\rc522.c(74): warning:  #223-D: function "logd" declared implicitly
-  		LOGD("card id is===== %02x%02x%02x%02x\r\n",SN[0],SN[1],SN[2],SN[3]);	
-..\HARDWARE\RC522\rc522.c: 2 warnings, 0 errors
+main.c(72): warning:  #223-D: function "logd" declared implicitly
+      LOGD("flash reset success");	
+main.c(87): warning:  #223-D: function "usart3_init" declared implicitly
+  	usart3_init(115200);
+main.c(91): warning:  #223-D: function "logd" declared implicitly
+  		LOGD("RTC ERROR!   ");	
+main.c(97): warning:  #223-D: function "logd" declared implicitly
+  	LOGD("init success\n");
+main.c(142): warning:  #223-D: function "logd" declared implicitly
+  	LOGD("led task start\r\n");
+main.c(158): warning:  #223-D: function "RC522_Handel" declared implicitly
+          RC522_Handel();  //射频卡处理程序
+main.c(164): warning:  #223-D: function "logd" declared implicitly
+  	LOGD("tuya task start\r\n");
+main.c(180): warning:  #223-D: function "logd" declared implicitly
+      LOGD("add key password");
+main.c(175): warning:  #177-D: variable "j"  was declared but never referenced
+      int i = 0,j=0;
+main.c(229): warning:  #223-D: function "logd" declared implicitly
+      LOGD("————注册指纹模式————");
+main.c(250): warning:  #111-D: statement is unreachable
+          vTaskDelay(10);
+main.c(280): warning:  #223-D: function "logd" declared implicitly
+      LOGD("choose user add type");
+main.c(309): warning:  #223-D: function "logd" declared implicitly
+      LOGD("open key password");
+main.c(304): warning:  #177-D: variable "j"  was declared but never referenced
+      int i = 0,j=0;
+main.c(363): warning:  #223-D: function "logd" declared implicitly
+                  LOGD("按键配网 SMART_CONFIG %d\r\n",set_wifimode_flag);
+main.c(392): warning:  #223-D: function "logd" declared implicitly
+  	LOGD("key task start");
+main.c(402): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  			OLED_ShowString(0,0,buf,16);
+main.c: 18 warnings, 0 errors
 linking...
-Program Size: Code=31816 RO-data=3116 RW-data=480 ZI-data=15752  
+Program Size: Code=31560 RO-data=3188 RW-data=480 ZI-data=15752  
 FromELF: creating hex file...
-"..\OBJ\LED.axf" - 0 Error(s), 2 Warning(s).
+"..\OBJ\LED.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -49,7 +81,7 @@ Package Vendor: Keil
   C:/Users/hc/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

@@ -629,11 +629,6 @@
               <FileType>1</FileType>
               <FilePath>..\mcu_sdk\system.c</FilePath>
             </File>
-            <File>
-              <FileName>lock_api.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\mcu_sdk\lock_api.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>
