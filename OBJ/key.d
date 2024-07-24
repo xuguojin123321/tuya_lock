@@ -32,3 +32,5 @@
 ..\obj\key.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\key.o: ..\SYSTEM\delay\delay.h
 ..\obj\key.o: ..\HARDWARE\LED\led.h
+..\obj\key.o: ..\SYSTEM\log\log.h
+..\obj\key.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

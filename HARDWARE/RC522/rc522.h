@@ -182,7 +182,8 @@ char             PcdSelect                    ( uint8_t * pSnr );
 char             PcdAuthState                 ( uint8_t ucAuth_mode, uint8_t ucAddr, uint8_t * pKey, uint8_t * pSnr );
 char             WriteAmount                  ( uint8_t ucAddr, uint32_t pData );
 char             ReadAmount                   ( uint8_t ucAddr, uint32_t *pData );
-
+char* RC522_GetCard(void);
+void cardhex_print(char* buf);
 extern char* POINT_LNG;
 extern char* POINT_LAT;
 extern char* POINT_LNG_ON;

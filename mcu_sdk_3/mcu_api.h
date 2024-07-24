@@ -1,15 +1,15 @@
 /**********************************Copyright (c)**********************************
-**                       ç‰ˆæƒæ‰€æœ‰ (C), 2015-2020, æ¶‚é¸¦ç§‘æŠ€
+**                       °æÈ¨ËùÓĞ (C), 2015-2020, Í¿Ñ»¿Æ¼¼
 **
 **                             http://www.tuya.com
 **
 *********************************************************************************/
 /**
  * @file    mcu_api.h
- * @author  æ¶‚é¸¦ç»¼åˆåè®®å¼€å‘ç»„
+ * @author  Í¿Ñ»×ÛºÏĞ­Òé¿ª·¢×é
  * @version v1.0.7
  * @date    2020.11.9
- * @brief   ç”¨æˆ·éœ€è¦ä¸»åŠ¨è°ƒç”¨çš„å‡½æ•°éƒ½åœ¨è¯¥æ–‡ä»¶å†…
+ * @brief   ÓÃ»§ĞèÒªÖ÷¶¯µ÷ÓÃµÄº¯Êı¶¼ÔÚ¸ÃÎÄ¼şÄÚ
  */
 
 
@@ -25,51 +25,51 @@
 #endif
 
 /**
- * @brief  hexè½¬bcd
- * @param[in] {Value_H} é«˜å­—èŠ‚
- * @param[in] {Value_L} ä½å­—èŠ‚
- * @return è½¬æ¢å®Œæˆåæ•°æ®
+ * @brief  hex×ªbcd
+ * @param[in] {Value_H} ¸ß×Ö½Ú
+ * @param[in] {Value_L} µÍ×Ö½Ú
+ * @return ×ª»»Íê³ÉºóÊı¾İ
  */
 unsigned char hex_to_bcd(unsigned char Value_H,unsigned char Value_L);
 
 /**
- * @brief  æ±‚å­—ç¬¦ä¸²é•¿åº¦
- * @param[in] {str} å­—ç¬¦ä¸²åœ°å€
- * @return æ•°æ®é•¿åº¦
+ * @brief  Çó×Ö·û´®³¤¶È
+ * @param[in] {str} ×Ö·û´®µØÖ·
+ * @return Êı¾İ³¤¶È
  */
 unsigned long my_strlen(unsigned char *str);
 
 /**
- * @brief  æŠŠsrcæ‰€æŒ‡å†…å­˜åŒºåŸŸçš„å‰countä¸ªå­—èŠ‚è®¾ç½®æˆå­—ç¬¦c
- * @param[out] {src} å¾…è®¾ç½®çš„å†…å­˜é¦–åœ°å€
- * @param[in] {ch} è®¾ç½®çš„å­—ç¬¦
- * @param[in] {count} è®¾ç½®çš„å†…å­˜é•¿åº¦
- * @return å¾…è®¾ç½®çš„å†…å­˜é¦–åœ°å€
+ * @brief  °ÑsrcËùÖ¸ÄÚ´æÇøÓòµÄÇ°count¸ö×Ö½ÚÉèÖÃ³É×Ö·ûc
+ * @param[out] {src} ´ıÉèÖÃµÄÄÚ´æÊ×µØÖ·
+ * @param[in] {ch} ÉèÖÃµÄ×Ö·û
+ * @param[in] {count} ÉèÖÃµÄÄÚ´æ³¤¶È
+ * @return ´ıÉèÖÃµÄÄÚ´æÊ×µØÖ·
  */
 void *my_memset(void *src,unsigned char ch,unsigned short count);
 
 /**
- * @brief  å†…å­˜æ‹·è´
- * @param[out] {dest} ç›®æ ‡åœ°å€
- * @param[in] {src} æºåœ°å€
- * @param[in] {count} æ‹·è´æ•°æ®ä¸ªæ•°
- * @return æ•°æ®å¤„ç†å®Œåçš„æºåœ°å€
+ * @brief  ÄÚ´æ¿½±´
+ * @param[out] {dest} Ä¿±êµØÖ·
+ * @param[in] {src} Ô´µØÖ·
+ * @param[in] {count} ¿½±´Êı¾İ¸öÊı
+ * @return Êı¾İ´¦ÀíÍêºóµÄÔ´µØÖ·
  */
 void *my_memcpy(void *dest, const void *src, unsigned short count);
 
 /**
- * @brief  å­—ç¬¦ä¸²æ‹·è´
- * @param[in] {dest} ç›®æ ‡åœ°å€
- * @param[in] {src} æºåœ°å€
- * @return æ•°æ®å¤„ç†å®Œåçš„æºåœ°å€
+ * @brief  ×Ö·û´®¿½±´
+ * @param[in] {dest} Ä¿±êµØÖ·
+ * @param[in] {src} Ô´µØÖ·
+ * @return Êı¾İ´¦ÀíÍêºóµÄÔ´µØÖ·
  */
 char *my_strcpy(char *dest, const char *src);
 
 /**
- * @brief  å­—ç¬¦ä¸²æ¯”è¾ƒ
- * @param[in] {s1} å­—ç¬¦ä¸² 1
- * @param[in] {s2} å­—ç¬¦ä¸² 2
- * @return å¤§å°æ¯”è¾ƒå€¼
+ * @brief  ×Ö·û´®±È½Ï
+ * @param[in] {s1} ×Ö·û´® 1
+ * @param[in] {s2} ×Ö·û´® 2
+ * @return ´óĞ¡±È½ÏÖµ
  * -         0:s1=s2
  * -         <0:s1<s2
  * -         >0:s1>s2
@@ -77,260 +77,260 @@ char *my_strcpy(char *dest, const char *src);
 int my_strcmp(char *s1 , char *s2);
 
 /**
- * @brief  å°†intç±»å‹æ‹†åˆ†å››ä¸ªå­—èŠ‚
- * @param[in] {number} 4å­—èŠ‚åŸæ•°æ®
- * @param[out] {value} å¤„ç†å®Œæˆå4å­—èŠ‚æ•°æ®
+ * @brief  ½«intÀàĞÍ²ğ·ÖËÄ¸ö×Ö½Ú
+ * @param[in] {number} 4×Ö½ÚÔ­Êı¾İ
+ * @param[out] {value} ´¦ÀíÍê³Éºó4×Ö½ÚÊı¾İ
  * @return Null
  */
 void int_to_byte(unsigned long number,unsigned char value[4]);
 
 /**
- * @brief  å°†4å­—èŠ‚åˆå¹¶ä¸º1ä¸ª32bitå˜é‡
- * @param[in] {value} 4å­—èŠ‚æ•°ç»„
- * @return åˆå¹¶å®Œæˆåçš„32bitå˜é‡
+ * @brief  ½«4×Ö½ÚºÏ²¢Îª1¸ö32bit±äÁ¿
+ * @param[in] {value} 4×Ö½ÚÊı×é
+ * @return ºÏ²¢Íê³ÉºóµÄ32bit±äÁ¿
  */
 unsigned long byte_to_int(const unsigned char value[4]);
 
 
 /**
- * @brief  rawå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼æŒ‡é’ˆ
- * @param[in] {len} æ•°æ®é•¿åº¦
+ * @brief  rawĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµÖ¸Õë
+ * @param[in] {len} Êı¾İ³¤¶È
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_raw_update(unsigned char dpid,const unsigned char value[],unsigned short len);
 
 /**
- * @brief  boolå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼
+ * @brief  boolĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµ
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_bool_update(unsigned char dpid,unsigned char value);
 
 /**
- * @brief  valueå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼
+ * @brief  valueĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµ
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_value_update(unsigned char dpid,unsigned long value);
 
 /**
- * @brief  stringå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼æŒ‡é’ˆ
- * @param[in] {len} æ•°æ®é•¿åº¦
+ * @brief  stringĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµÖ¸Õë
+ * @param[in] {len} Êı¾İ³¤¶È
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_string_update(unsigned char dpid,const unsigned char value[],unsigned short len);
 
 /**
- * @brief  enumå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼
+ * @brief  enumĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµ
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_enum_update(unsigned char dpid,unsigned char value);
 
 /**
- * @brief  faultå‹dpæ•°æ®ä¸Šä¼ 
- * @param[in] {dpid} dpidå·
- * @param[in] {value} å½“å‰dpå€¼
+ * @brief  faultĞÍdpÊı¾İÉÏ´«
+ * @param[in] {dpid} dpidºÅ
+ * @param[in] {value} µ±Ç°dpÖµ
  * @return Null
  * @note   Null
  */
 unsigned char mcu_dp_fault_update(unsigned char dpid,unsigned long value);
 
 /**
- * @brief  mcuè·å–boolå‹ä¸‹å‘dpå€¼
- * @param[in] {value} dpæ•°æ®ç¼“å†²åŒºåœ°å€
- * @param[in] {len} dpæ•°æ®é•¿åº¦
- * @return å½“å‰dpå€¼
+ * @brief  mcu»ñÈ¡boolĞÍÏÂ·¢dpÖµ
+ * @param[in] {value} dpÊı¾İ»º³åÇøµØÖ·
+ * @param[in] {len} dpÊı¾İ³¤¶È
+ * @return µ±Ç°dpÖµ
  * @note   Null
  */
 unsigned char mcu_get_dp_download_bool(const unsigned char value[],unsigned short len);
 
 /**
- * @brief  mcuè·å–enumå‹ä¸‹å‘dpå€¼
- * @param[in] {value} dpæ•°æ®ç¼“å†²åŒºåœ°å€
- * @param[in] {len} dpæ•°æ®é•¿åº¦
- * @return å½“å‰dpå€¼
+ * @brief  mcu»ñÈ¡enumĞÍÏÂ·¢dpÖµ
+ * @param[in] {value} dpÊı¾İ»º³åÇøµØÖ·
+ * @param[in] {len} dpÊı¾İ³¤¶È
+ * @return µ±Ç°dpÖµ
  * @note   Null
  */
 unsigned char mcu_get_dp_download_enum(const unsigned char value[],unsigned short len);
 
 /**
- * @brief  mcuè·å–valueå‹ä¸‹å‘dpå€¼
- * @param[in] {value} dpæ•°æ®ç¼“å†²åŒºåœ°å€
- * @param[in] {len} dpæ•°æ®é•¿åº¦
- * @return å½“å‰dpå€¼
+ * @brief  mcu»ñÈ¡valueĞÍÏÂ·¢dpÖµ
+ * @param[in] {value} dpÊı¾İ»º³åÇøµØÖ·
+ * @param[in] {len} dpÊı¾İ³¤¶È
+ * @return µ±Ç°dpÖµ
  * @note   Null
  */
 unsigned long mcu_get_dp_download_value(const unsigned char value[],unsigned short len);
 
 /**
- * @brief  ä¸²å£æ¥æ”¶æ•°æ®æš‚å­˜å¤„ç†
- * @param[in] {value} ä¸²å£æ”¶åˆ°çš„1å­—èŠ‚æ•°æ®
+ * @brief  ´®¿Ú½ÓÊÕÊı¾İÔİ´æ´¦Àí
+ * @param[in] {value} ´®¿ÚÊÕµ½µÄ1×Ö½ÚÊı¾İ
  * @return Null
- * @note   åœ¨MCUä¸²å£å¤„ç†å‡½æ•°ä¸­è°ƒç”¨è¯¥å‡½æ•°,å¹¶å°†æ¥æ”¶åˆ°çš„æ•°æ®ä½œä¸ºå‚æ•°ä¼ å…¥
+ * @note   ÔÚMCU´®¿Ú´¦Àíº¯ÊıÖĞµ÷ÓÃ¸Ãº¯Êı,²¢½«½ÓÊÕµ½µÄÊı¾İ×÷Îª²ÎÊı´«Èë
  */
 void uart_receive_input(unsigned char value);
 
 /**
- * @brief  wifiä¸²å£æ•°æ®å¤„ç†æœåŠ¡
+ * @brief  wifi´®¿ÚÊı¾İ´¦Àí·şÎñ
  * @param  Null
  * @return Null
- * @note   åœ¨MCUä¸»å‡½æ•°whileå¾ªç¯ä¸­è°ƒç”¨è¯¥å‡½æ•°
+ * @note   ÔÚMCUÖ÷º¯ÊıwhileÑ­»·ÖĞµ÷ÓÃ¸Ãº¯Êı
  */
 void wifi_uart_service(void);
 
 /**
- * @brief  åè®®ä¸²å£åˆå§‹åŒ–å‡½æ•°
+ * @brief  Ğ­Òé´®¿Ú³õÊ¼»¯º¯Êı
  * @param  Null
  * @return Null
- * @note   åœ¨MCUåˆå§‹åŒ–ä»£ç ä¸­è°ƒç”¨è¯¥å‡½æ•°
+ * @note   ÔÚMCU³õÊ¼»¯´úÂëÖĞµ÷ÓÃ¸Ãº¯Êı
  */
 void wifi_protocol_init(void);
 
 
 /**
- * @brief  è®°å½•å‹æ•°æ®ç»„åˆä¸ŠæŠ¥
- * @param[in] {time} æ—¶é—´æ•°æ®é•¿åº¦7ï¼Œé¦–å­—èŠ‚è¡¨ç¤ºæ˜¯å¦ä¼ è¾“æ ‡å¿—ä½ï¼Œå…¶ä½™ä¾æ¬¡ä¸ºå¹´ã€æœˆã€æ—¥ã€æ—¶ã€åˆ†ã€ç§’
- * @param[in] {dp_node} dpæ•°æ®ç»“æ„ï¼Œéœ€è¦åœ¨è°ƒç”¨æ­¤å‡½æ•°ä¹‹å‰ï¼Œåˆ›å»ºä¸€ä¸ªæ­¤ç»“æ„ä½“ç±»å‹çš„æ•°ç»„ï¼Œæ•°ç»„é•¿åº¦ä¸ºdpä¸ªæ•°ï¼Œ
-                                    å°†è®°å½•å‹dpæ•°æ®ç¼“å­˜åˆ°æ­¤ç»“æ„ä½“ä¸­ï¼Œdpå€¼éœ€è¦æ ¹æ®dpçš„æ•°æ®ç±»å‹ï¼Œå­˜å…¥åˆ°å¯¹åº”ç±»å‹çš„ç»“æ„ä½“æˆå‘˜ä¸­
- * @param[in] {dp_node_num} dpä¸ªæ•°
- * @return ç»“æœ
- * -           0(ERROR): å¤±è´¥
- * -           1(SUCCESS): æˆåŠŸ
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨è¯¥å‡½æ•°
+ * @brief  ¼ÇÂ¼ĞÍÊı¾İ×éºÏÉÏ±¨
+ * @param[in] {time} Ê±¼äÊı¾İ³¤¶È7£¬Ê××Ö½Ú±íÊ¾ÊÇ·ñ´«Êä±êÖ¾Î»£¬ÆäÓàÒÀ´ÎÎªÄê¡¢ÔÂ¡¢ÈÕ¡¢Ê±¡¢·Ö¡¢Ãë
+ * @param[in] {dp_node} dpÊı¾İ½á¹¹£¬ĞèÒªÔÚµ÷ÓÃ´Ëº¯ÊıÖ®Ç°£¬´´½¨Ò»¸ö´Ë½á¹¹ÌåÀàĞÍµÄÊı×é£¬Êı×é³¤¶ÈÎªdp¸öÊı£¬
+                                    ½«¼ÇÂ¼ĞÍdpÊı¾İ»º´æµ½´Ë½á¹¹ÌåÖĞ£¬dpÖµĞèÒª¸ù¾İdpµÄÊı¾İÀàĞÍ£¬´æÈëµ½¶ÔÓ¦ÀàĞÍµÄ½á¹¹Ìå³ÉÔ±ÖĞ
+ * @param[in] {dp_node_num} dp¸öÊı
+ * @return ½á¹û
+ * -           0(ERROR): Ê§°Ü
+ * -           1(SUCCESS): ³É¹¦
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃ¸Ãº¯Êı
  */
 unsigned char dp_record_combine_update(unsigned char time[], t_DP_NODE dp_node[], unsigned char dp_node_num);
 
 
 #ifndef WIFI_CONTROL_SELF_MODE
 /**
- * @brief  MCUè·å–å¤ä½wifiæˆåŠŸæ ‡å¿—
+ * @brief  MCU»ñÈ¡¸´Î»wifi³É¹¦±êÖ¾
  * @param  Null
- * @return å¤ä½æ ‡å¿—
- * -           0(RESET_WIFI_ERROR):å¤±è´¥
- * -           1(RESET_WIFI_SUCCESS):æˆåŠŸ
- * @note   1:MCUä¸»åŠ¨è°ƒç”¨mcu_reset_wifi()åè°ƒç”¨è¯¥å‡½æ•°è·å–å¤ä½çŠ¶æ€
- *         2:å¦‚æœä¸ºæ¨¡å—è‡ªå¤„ç†æ¨¡å¼,MCUæ— é¡»è°ƒç”¨è¯¥å‡½æ•°
+ * @return ¸´Î»±êÖ¾
+ * -           0(RESET_WIFI_ERROR):Ê§°Ü
+ * -           1(RESET_WIFI_SUCCESS):³É¹¦
+ * @note   1:MCUÖ÷¶¯µ÷ÓÃmcu_reset_wifi()ºóµ÷ÓÃ¸Ãº¯Êı»ñÈ¡¸´Î»×´Ì¬
+ *         2:Èç¹ûÎªÄ£¿é×Ô´¦ÀíÄ£Ê½,MCUÎŞĞëµ÷ÓÃ¸Ãº¯Êı
  */
 unsigned char mcu_get_reset_wifi_flag(void);
 
 /**
- * @brief  MCUä¸»åŠ¨é‡ç½®wifiå·¥ä½œæ¨¡å¼
+ * @brief  MCUÖ÷¶¯ÖØÖÃwifi¹¤×÷Ä£Ê½
  * @param  Null
  * @return Null
- * @note   1:MCUä¸»åŠ¨è°ƒç”¨,é€šè¿‡mcu_get_reset_wifi_flag()å‡½æ•°è·å–é‡ç½®wifiæ˜¯å¦æˆåŠŸ
- *         2:å¦‚æœä¸ºæ¨¡å—è‡ªå¤„ç†æ¨¡å¼,MCUæ— é¡»è°ƒç”¨è¯¥å‡½æ•°
+ * @note   1:MCUÖ÷¶¯µ÷ÓÃ,Í¨¹ımcu_get_reset_wifi_flag()º¯Êı»ñÈ¡ÖØÖÃwifiÊÇ·ñ³É¹¦
+ *         2:Èç¹ûÎªÄ£¿é×Ô´¦ÀíÄ£Ê½,MCUÎŞĞëµ÷ÓÃ¸Ãº¯Êı
  */
 void mcu_reset_wifi(void);
 
 /**
- * @brief  è·å–è®¾ç½®wifiçŠ¶æ€æˆåŠŸæ ‡å¿—
+ * @brief  »ñÈ¡ÉèÖÃwifi×´Ì¬³É¹¦±êÖ¾
  * @param  Null
  * @return wifimode flag
- * -           0(SET_WIFICONFIG_ERROR):å¤±è´¥
- * -           1(SET_WIFICONFIG_SUCCESS):æˆåŠŸ
- * @note   1:MCUä¸»åŠ¨è°ƒç”¨mcu_set_wifi_mode()åè°ƒç”¨è¯¥å‡½æ•°è·å–å¤ä½çŠ¶æ€
- *         2:å¦‚æœä¸ºæ¨¡å—è‡ªå¤„ç†æ¨¡å¼,MCUæ— é¡»è°ƒç”¨è¯¥å‡½æ•°
+ * -           0(SET_WIFICONFIG_ERROR):Ê§°Ü
+ * -           1(SET_WIFICONFIG_SUCCESS):³É¹¦
+ * @note   1:MCUÖ÷¶¯µ÷ÓÃmcu_set_wifi_mode()ºóµ÷ÓÃ¸Ãº¯Êı»ñÈ¡¸´Î»×´Ì¬
+ *         2:Èç¹ûÎªÄ£¿é×Ô´¦ÀíÄ£Ê½,MCUÎŞĞëµ÷ÓÃ¸Ãº¯Êı
  */
 unsigned char mcu_get_wifimode_flag(void);
 
 /**
- * @brief  MCUè®¾ç½®wifiå·¥ä½œæ¨¡å¼
- * @param[in] {mode} è¿›å…¥çš„æ¨¡å¼
- * @ref        0(SMART_CONFIG):è¿›å…¥smartconfigæ¨¡å¼
- * @ref        1(AP_CONFIG):è¿›å…¥APæ¨¡å¼
+ * @brief  MCUÉèÖÃwifi¹¤×÷Ä£Ê½
+ * @param[in] {mode} ½øÈëµÄÄ£Ê½
+ * @ref        0(SMART_CONFIG):½øÈësmartconfigÄ£Ê½
+ * @ref        1(AP_CONFIG):½øÈëAPÄ£Ê½
  * @return Null
- * @note   1:MCUä¸»åŠ¨è°ƒç”¨
- *         2:æˆåŠŸå,å¯åˆ¤æ–­set_wifi_config_stateæ˜¯å¦ä¸ºTRUE;TRUEè¡¨ç¤ºä¸ºè®¾ç½®wifiå·¥ä½œæ¨¡å¼æˆåŠŸ
- *         3:å¦‚æœä¸ºæ¨¡å—è‡ªå¤„ç†æ¨¡å¼,MCUæ— é¡»è°ƒç”¨è¯¥å‡½æ•°
+ * @note   1:MCUÖ÷¶¯µ÷ÓÃ
+ *         2:³É¹¦ºó,¿ÉÅĞ¶Ïset_wifi_config_stateÊÇ·ñÎªTRUE;TRUE±íÊ¾ÎªÉèÖÃwifi¹¤×÷Ä£Ê½³É¹¦
+ *         3:Èç¹ûÎªÄ£¿é×Ô´¦ÀíÄ£Ê½,MCUÎŞĞëµ÷ÓÃ¸Ãº¯Êı
  */
 void mcu_set_wifi_mode(unsigned char mode);
 
 /**
- * @brief  MCUä¸»åŠ¨è·å–å½“å‰wifiå·¥ä½œçŠ¶æ€
+ * @brief  MCUÖ÷¶¯»ñÈ¡µ±Ç°wifi¹¤×÷×´Ì¬
  * @param  Null
  * @return wifi work state
- * -          SMART_CONFIG_STATE: smartconfigé…ç½®çŠ¶æ€
- * -          AP_STATE: APé…ç½®çŠ¶æ€
- * -          WIFI_NOT_CONNECTED: WIFIé…ç½®æˆåŠŸä½†æœªè¿ä¸Šè·¯ç”±å™¨
- * -          WIFI_CONNECTED: WIFIé…ç½®æˆåŠŸä¸”è¿ä¸Šè·¯ç”±å™¨
- * -          WIFI_CONN_CLOUD: WIFIå·²ç»è¿æ¥ä¸Šäº‘æœåŠ¡å™¨
- * -          WIFI_LOW_POWER: WIFIå¤„äºä½åŠŸè€—æ¨¡å¼
- * -          SMART_AND_AP_STATE: WIFI smartconfig&AP æ¨¡å¼
- * @note   å¦‚æœä¸ºæ¨¡å—è‡ªå¤„ç†æ¨¡å¼,MCUæ— é¡»è°ƒç”¨è¯¥å‡½æ•°
+ * -          SMART_CONFIG_STATE: smartconfigÅäÖÃ×´Ì¬
+ * -          AP_STATE: APÅäÖÃ×´Ì¬
+ * -          WIFI_NOT_CONNECTED: WIFIÅäÖÃ³É¹¦µ«Î´Á¬ÉÏÂ·ÓÉÆ÷
+ * -          WIFI_CONNECTED: WIFIÅäÖÃ³É¹¦ÇÒÁ¬ÉÏÂ·ÓÉÆ÷
+ * -          WIFI_CONN_CLOUD: WIFIÒÑ¾­Á¬½ÓÉÏÔÆ·şÎñÆ÷
+ * -          WIFI_LOW_POWER: WIFI´¦ÓÚµÍ¹¦ºÄÄ£Ê½
+ * -          SMART_AND_AP_STATE: WIFI smartconfig&AP Ä£Ê½
+ * @note   Èç¹ûÎªÄ£¿é×Ô´¦ÀíÄ£Ê½,MCUÎŞĞëµ÷ÓÃ¸Ãº¯Êı
  */
 unsigned char mcu_get_wifi_work_state(void);
 #endif
 
 #ifdef SUPPORT_MCU_RTC_CHECK
 /**
- * @brief  MCUè·å–æœ¬åœ°æ—¶é—´,ç”¨äºæ ¡å¯¹æœ¬åœ°æ—¶é’Ÿ
+ * @brief  MCU»ñÈ¡±¾µØÊ±¼ä,ÓÃÓÚĞ£¶Ô±¾µØÊ±ÖÓ
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ mcu_write_rtctime å‡½æ•°å†…æ ¡å¯¹rtcæ—¶é’Ÿ
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ mcu_write_rtctime º¯ÊıÄÚĞ£¶ÔrtcÊ±ÖÓ
  */
 void mcu_get_system_time(void);
 #endif
 
 #ifdef SUPPORT_GREEN_TIME
 /**
- * @brief  MCUè·å–æ ¼æ—æ—¶é—´,ç”¨äºæ ¡å¯¹æœ¬åœ°æ—¶é’Ÿ
+ * @brief  MCU»ñÈ¡¸ñÁÖÊ±¼ä,ÓÃÓÚĞ£¶Ô±¾µØÊ±ÖÓ
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ mcu_write_gltime å‡½æ•°å†…è®°å½•å¹¶è®¡ç®—æ ¼æ—æ—¶é—´ï¼Œ
-           ç”¨äºé—¨é”ç±»æ—¶é—´æˆ³æ ¡éªŒ
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ mcu_write_gltime º¯ÊıÄÚ¼ÇÂ¼²¢¼ÆËã¸ñÁÖÊ±¼ä£¬
+           ÓÃÓÚÃÅËøÀàÊ±¼ä´ÁĞ£Ñé
  */
 void mcu_get_gelin_time(void);
 #endif
 
 #ifdef WIFI_TEST_ENABLE
 /**
- * @brief  mcuå‘èµ·wifiåŠŸèƒ½æµ‹è¯•
+ * @brief  mcu·¢Æğwifi¹¦ÄÜ²âÊÔ
  * @param  Null
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨è¯¥åŠŸèƒ½
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃ¸Ã¹¦ÄÜ
  */
 void mcu_start_wifitest(void);
 #endif
 
 /**
- * @brief  MCUè¯·æ±‚wifiå›ºä»¶å‡çº§
+ * @brief  MCUÇëÇówifi¹Ì¼şÉı¼¶
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ wifi_update_handle å‡½æ•°å†…å¯è·å–å‡çº§å½“å‰çŠ¶æ€
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ wifi_update_handle º¯ÊıÄÚ¿É»ñÈ¡Éı¼¶µ±Ç°×´Ì¬
  */
 void wifi_update_request(void);
 
 #ifdef DP_CACHE_SUPPORT
 /**
- * @brief  è·å–dpç¼“å­˜æŒ‡ä»¤
- * @param[in] {table} dpè¡¨ï¼Œå­˜æ”¾ç”¨æˆ·éœ€è¦æŸ¥è¯¢çš„dpï¼Œå¦‚æœç”¨æˆ·éœ€è¦æŸ¥è¯¢æ‰€æœ‰dpï¼Œåˆ™tableç›´æ¥å¡«NULLå³å¯
- * @param[in] {dp_num} éœ€è¦æŸ¥è¯¢çš„dpçš„æ•°é‡,å¦‚æœéœ€è¦æŸ¥è¯¢æ‰€æœ‰dpï¼Œåˆ™dp_numå¡«0å³å¯
+ * @brief  »ñÈ¡dp»º´æÖ¸Áî
+ * @param[in] {table} dp±í£¬´æ·ÅÓÃ»§ĞèÒª²éÑ¯µÄdp£¬Èç¹ûÓÃ»§ĞèÒª²éÑ¯ËùÓĞdp£¬ÔòtableÖ±½ÓÌîNULL¼´¿É
+ * @param[in] {dp_num} ĞèÒª²éÑ¯µÄdpµÄÊıÁ¿,Èç¹ûĞèÒª²éÑ¯ËùÓĞdp£¬Ôòdp_numÌî0¼´¿É
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨è¯¥åŠŸèƒ½
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃ¸Ã¹¦ÄÜ
  */
 void get_dp_cache(unsigned char *table,unsigned char dp_num);
 #endif
 
 #ifdef REPORTED_MCU_SN_ENABLE
 /**
- * @brief  MCUä¸ŠæŠ¥SN
- * @param[in] {sn} SNå·
- * @param[in] {sn_len} SNå·é•¿åº¦
+ * @brief  MCUÉÏ±¨SN
+ * @param[in] {sn} SNºÅ
+ * @param[in] {sn_len} SNºÅ³¤¶È
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ mcu_sn_updata_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ mcu_sn_updata_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void mcu_sn_updata(unsigned char sn[],unsigned char sn_len);
 #endif

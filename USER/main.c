@@ -42,7 +42,8 @@ void tuya_task(void *pvParameters);
 
 #define user_max_num 5
 #define FLASH_SAVE_ADDR  0x0800F000 	//设置FLASH 保存地址(必须为偶数，且其值要大于本代码所占用FLASH的大小+0X08000000)
-
+uint8_t g_finger_mode = 0;
+uint8_t g_card_mode = 0;
 typedef struct 
 {
     char key_password[7];
@@ -59,6 +60,17 @@ static void flash_read()
 		memset(&g_password[i],0,sizeof(g_password[i]));
 	}
 	STMFLASH_Read(FLASH_SAVE_ADDR,(u16*)g_password,sizeof(g_password[0])*user_max_num);//储存数据 
+	for(i=0;i<user_max_num;i++)
+	{
+		if(strlen(g_password[i].key_password) != 0)
+		{
+			LOGD("===%s\n",g_password[i].key_password);
+		}
+        if(strlen(g_password[i].id_card) != 0)
+        {
+            cardhex_print(g_password[i].id_card);
+        }
+	}
 }
 
 static void flash_reset()
@@ -70,6 +82,14 @@ static void flash_reset()
 	}
     STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)g_password,sizeof(g_password[0])*user_max_num);//储存数据 
     LOGD("flash reset success");	
+}
+void show_welcome()
+{
+    OLED_ShowCHinese(0,0,0);
+    OLED_ShowCHinese(16,0,1);
+    OLED_ShowCHinese(32,0,2);
+    OLED_ShowCHinese(48,0,3);
+    OLED_ShowCHinese(64,0,4);
 }
 int main(void)
 {
@@ -97,7 +117,12 @@ int main(void)
 	LOGD("init success\n");
 	LED0=0;
     OPEN = 0;
+    BEEP = 0;
+    delay_ms(200);
     BEEP = 1;
+    show_welcome();
+    g_card_mode = 0;
+    g_finger_mode = 0;
 	xTaskCreate((TaskFunction_t		)start_task,
 							(const char*			)"start_task",
 							(uint16_t					)START_STK_SIZE,
@@ -105,6 +130,7 @@ int main(void)
 							(UBaseType_t			)START_TASK_PRIO,
 							(TaskHandle_t*		)&StartTask_Handler);
 
+   // while(1){};
 	vTaskStartScheduler();
 }
 
@@ -135,41 +161,73 @@ void start_task(void *pvParameters)
 	taskEXIT_CRITICAL();
 
 }
-u32 delay_time = 100;
+static void cardid_check(char *cardid);
 void led0_task(void *pvParameters)
 {
-    uint8_t time = 0;
+    char *card = NULL;
 	LOGD("led task start\r\n");
 	while(1)
 	{
-        time++;
-		if(time >= 10)
+		if(g_finger_mode == 0 && FPM383C_Loop() == 0)
         {
-            LED0 = ~LED0;
-            IWDG_Feed();//喂狗
-            time = 0;
+            open_door();
         }
-		if(FPM383C_Loop() == 0)
-        {
-            OPEN = 1;
-            vTaskDelay(200);
-            OPEN = 0;
-        }
-        RC522_Handel();  //射频卡处理程序
 		vTaskDelay(50);
+        if(g_card_mode == 0)
+        {
+            card = RC522_GetCard();  //射频卡处理程序
+            if(card != NULL)
+            {
+                cardid_check(card);
+            }
+        }
 	}
 }
 void tuya_task(void *pvParameters)
 {
+    uint8_t time = 0;
 	LOGD("tuya task start\r\n");
 	while(1)
 	{
+        time++;
+		if(time >= 3)
+        {
+           // LED0 = ~LED0;
+            IWDG_Feed();//喂狗
+            time = 0;
+        }
 		wifi_uart_service();
 		//LOGD("tuya task runing\n");
 		vTaskDelay(50);
 	}
 }
-
+static void cardid_check(char *cardid)
+{
+    int i = 0;
+    int j = 0;
+    int count = 0;
+    for(j=0;j<user_max_num;j++)
+    {
+        for(i=0;i<4;i++)
+        {
+            if(g_password[j].id_card[i] == cardid[i])
+            {
+                count ++;
+            }
+        }
+        if(count == 4)
+        {
+            LOGD("open door by");
+            cardhex_print(cardid);
+            open_door();
+            return;
+        }
+        count = 0;
+    }
+    LOGD("no this card");
+    cardhex_print(cardid);
+    return;
+}
 static void key_password_add()
 {
     int i = 0,j=0;
@@ -189,6 +247,8 @@ static void key_password_add()
         {
             buf[count] = '0' + value;
             LOGD("value %c", buf[count]);
+            OLED_Clear();
+            OLED_ShowString(10*count,2,"*",16);
             count++;
             LOGD("count %d",count);
             value = -1;
@@ -220,33 +280,36 @@ static void key_password_add()
 }
 static void idcard_add()
 {
-    return;
-}
-static void finger_add()
-{
-    int8_t value = -1;
+    int i = 0;
+    int8_t value = 0;
     int time = 500;//界面停留5s 
-    LOGD("————注册指纹模式————");
-    
-    //清除之前数据的残留，为下一次接收数据准备 
-
-    LOGD(">>>请先输入指纹ID<<<");
-    
-    
+    char *card = NULL;
+    OLED_Clear();
+    OLED_ShowString(0,4,"input card",16);
+    g_card_mode = 1;
     while(time > 0)
     {
         KEY_Read(&value);
         if(value == 10)
         {
+            g_card_mode = 0;
             return;
         }
-        if(value != -1)
+        card = RC522_GetCard();
+        if(card != NULL)
         {
-            LOGD(">>>输入的指纹ID：%d<<<",value);
-            FPM383C_Add(value);
-            value = -1;
+            for(i=0;i<user_max_num;i++)
+            {
+                if(strlen(g_password[i].id_card) == 0)
+                {
+                    my_memcpy(g_password[i].id_card, card,sizeof(card));
+                    LOGD("add card id %02x%02x%02x%02x\r\n",g_password[i].id_card[0],g_password[i].id_card[1],g_password[i].id_card[2],g_password[i].id_card[3]);
+                    STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)g_password,sizeof(g_password[0])*user_max_num);//储存数据 
+                    g_card_mode = 0;
+                    return;
+                }
+            }
         }
-        break;
         vTaskDelay(10);
         time--;
     }
@@ -254,6 +317,44 @@ static void finger_add()
     {
         LOGD(">>>超时退出<<<");
     }
+    g_card_mode = 0;
+    return;
+}
+static void finger_add()
+{
+    int8_t value = -1;
+    int time = 500;//界面停留5s 
+    LOGD("————注册指纹模式————");
+    g_finger_mode = 1;
+    //清除之前数据的残留，为下一次接收数据准备 
+
+    LOGD(">>>请先输入指纹ID<<<");
+    
+    OLED_Clear();
+    OLED_ShowString(0,4,"input finger value",16);
+    
+    while(time > 0)
+    {
+        KEY_Read(&value);
+        if(value == 10)
+        {
+            g_finger_mode = 0;
+            return;
+        }
+        if(value != -1)
+        {
+            LOGD(">>>输入的指纹ID：%d<<<",value);
+            FPM383C_Add(value);
+            break;
+        }
+        vTaskDelay(10);
+        time--;
+    }
+    if(time == 0)
+    {
+        LOGD(">>>超时退出<<<");
+    }
+    g_finger_mode = 0;
     /* 将状态标志位置位，传给下面的Switch函数调用对应的功能  */
 }
 static void add_type(int8_t type)
@@ -273,11 +374,47 @@ static void add_type(int8_t type)
             break;
     }
 }
+
+static void del_type(int8_t type)
+{
+    int i = 0;
+    switch(type)
+    {
+        case 1://添加密码
+            for(i=0;i<user_max_num;i++)
+            {
+                my_memset(g_password[i].key_password,0,sizeof(g_password[i].key_password));
+                STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)g_password,sizeof(g_password[0])*user_max_num);//储存数据 
+            }
+            LOGD("del key");
+            break;
+        case 2://添加刷卡 
+            for(i=0;i<user_max_num;i++)
+            {
+                my_memset(g_password[i].id_card,0,sizeof(g_password[i].id_card));
+                STMFLASH_Write(FLASH_SAVE_ADDR,(u16*)g_password,sizeof(g_password[0])*user_max_num);//储存数据 
+            }
+            LOGD("del card");
+            break;
+        case 3://指纹
+            FPM383C_Empty(5);
+            LOGD("del finger");
+            break;
+        default:
+            break;
+    }
+}
 static void user_add()
 {
     int8_t value = -1;
     int time = 500;//界面停留5s 
     LOGD("choose user add type");
+    
+    OLED_Clear();
+    OLED_ShowString(0,0,"input add type",16);
+    OLED_ShowString(0,2,"1  key",16);
+    OLED_ShowString(0,4,"2  card",16);
+    OLED_ShowString(0,6,"3  finger",16);
     while(time > 0)
     {
         KEY_Read(&value);
@@ -288,7 +425,6 @@ static void user_add()
         if(value != -1)
         {
             add_type(value);
-            value = -1;
             break;
         }
         vTaskDelay(10);
@@ -299,7 +435,40 @@ static void user_add()
         LOGD("time out");
     }
 }
-static void keypassword_open_process()
+
+static void user_del()
+{
+    int8_t value = -1;
+    int time = 500;//界面停留5s 
+    LOGD("choose user del type");
+    
+    OLED_Clear();
+    OLED_ShowString(0,0,"input del type",16);
+    OLED_ShowString(0,2,"1  key",16);
+    OLED_ShowString(0,4,"2  card",16);
+    OLED_ShowString(0,6,"3  finger",16);
+    while(time > 0)
+    {
+        KEY_Read(&value);
+        if(value == 10)
+        {
+            return;
+        }
+        if(value != -1)
+        {
+            del_type(value);
+            break;
+        }
+        vTaskDelay(10);
+        time--;
+    }
+    if(time == 0)
+    {
+        LOGD("time out");
+    }
+}
+
+static int keypassword_open_process(int8_t keyvalue)
 {
     int i = 0,j=0;
     char buf[7] = {0};
@@ -307,6 +476,14 @@ static void keypassword_open_process()
     int count = 0;
     int time = 1000;//界面停留5s 
     LOGD("open key password");
+
+    if(keyvalue<9)
+    {
+        buf[0] = '0' + keyvalue;
+        count++;
+        OLED_ShowString(32,2,"*",16);
+    }
+
     while(time > 0)
     {
         KEY_Read(&value);
@@ -319,8 +496,8 @@ static void keypassword_open_process()
             buf[count] = '0' + value;
             LOGD("value %c", buf[count]);
             LOGD("count %d",count);
+            OLED_ShowString(32+10*count,2,"*",16);
             count++;
-            value = -1;
         }
         if(count == 6)
         {
@@ -331,10 +508,7 @@ static void keypassword_open_process()
                     if(strcmp(g_password[i].key_password,buf) == 0)
                     {
                         LOGD("open success %s",g_password[i].key_password);
-                        OPEN = 1;
-                        vTaskDelay(200);
-                        OPEN = 0;
-                        return;
+                        return 0;
                     }
                 }
             }
@@ -348,7 +522,7 @@ static void keypassword_open_process()
     {
         LOGD("time out");
     }
-    return;
+    return -1;
 }
 static void key_process(int8_t value)
 {
@@ -356,13 +530,23 @@ static void key_process(int8_t value)
 	{
 		case 13:
             {
-                flash_reset();
-                mcu_reset_wifi();
-                vTaskDelay(50);
-                mcu_set_wifi_mode(SMART_CONFIG);
-                LOGD("按键配网 SMART_CONFIG %d\r\n",set_wifimode_flag);
-                LOGD("%02x\n",mcu_get_wifi_work_state());
-                vTaskDelay(50);
+                OLED_Clear();
+                OLED_ShowString(0,0,"config wifi",16);
+                if(keypassword_open_process(value) == 0)
+                {
+                    flash_reset();
+                    mcu_reset_wifi();
+                    BEEP = 0;
+                    vTaskDelay(100);
+                    BEEP = 1;
+                    vTaskDelay(100);
+                    BEEP = 0;
+                    vTaskDelay(100);
+                    BEEP = 1;
+                    mcu_set_wifi_mode(SMART_CONFIG);
+                    LOGD("按键配网 SMART_CONFIG %d\r\n",set_wifimode_flag);
+                    LOGD("%02x\n",mcu_get_wifi_work_state());
+                }
             }
             break;
         case 1:
@@ -375,12 +559,32 @@ static void key_process(int8_t value)
         case 8:
         case 9:
         {
-            keypassword_open_process();
+            OLED_Clear();
+            OLED_ShowString(0,0,"open door",16);
+            if(keypassword_open_process(value) == 0)
+            {
+                open_door();
+            }
         }
         break;
 		case 12:
         {
-            user_add();
+            OLED_Clear();
+            OLED_ShowString(0,0,"add user",16);
+            if(keypassword_open_process(value) == 0)
+            {
+                user_add();
+            }
+        }
+        break;
+        case 14:
+        {
+            OLED_Clear();
+            OLED_ShowString(0,0,"del user",16);
+            if(keypassword_open_process(value) == 0)
+            {
+                user_del();
+            }
         }
         break;
 	}
@@ -394,16 +598,16 @@ void key_task(void *pvParameters)
 	{
 		//wifi_uart_service();
 		KEY_Read(&value);
-		if(value != -1)
+		if(g_finger_mode == 0 && value != -1)
 		{
 			memset(buf,0,sizeof(buf));
 			snprintf(buf,sizeof(buf),"key is %d    ",value);
 			LOGD(buf);
-			OLED_ShowString(0,0,buf,16);
-		    delay_time = value*100;
-		}
-		key_process(value);
-		value = -1;
+			//OLED_ShowString(0,0,buf,16);
+		    key_process(value);
+            OLED_Clear();
+            show_welcome();
+        }
 		vTaskDelay(10);
 	}
 }

@@ -1,6 +1,6 @@
 Dependencies for Project 'LED', Target 'LED': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x667992F6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x66A137B3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -33,7 +33,7 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x5F379D3C)
 I (..\SYSTEM\usart\usart.h)(0x667586FA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\HARDWARE\LED\led.h)(0x6679903F)
+I (..\HARDWARE\LED\led.h)(0x66A12B0E)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x573F3A16)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x5F37CFA2)
@@ -52,11 +52,11 @@ I (..\HARDWARE\fpm383c\FPM383C.h)(0x667672CA)
 I (C:\Keil_v5\ARM\ARMCC\include\String.h)(0x6025237E)
 I (..\HARDWARE\IWDG\iwdg.h)(0x533026A1)
 I (..\HARDWARE\RTC\rtc.h)(0x532C02E6)
-I (..\mcu_sdk\wifi.h)(0x65ACB42D)
-I (..\mcu_sdk\protocol.h)(0x6678351E)
-I (..\mcu_sdk\system.h)(0x667836B9)
-I (..\mcu_sdk\mcu_api.h)(0x65ABC896)
-I (..\HARDWARE\RC522\rc522.h)(0x6676A326)
+I (..\mcu_sdk\wifi.h)(0x66799445)
+I (..\mcu_sdk\protocol.h)(0x66799445)
+I (..\mcu_sdk\system.h)(0x66799445)
+I (..\mcu_sdk\mcu_api.h)(0x66799445)
+I (..\HARDWARE\RC522\rc522.h)(0x66A1275A)
 I (..\HARDWARE\STMFLASH\stmflash.h)(0x53312AD2)
 F (.\stm32f10x_it.c)(0x5F379AA2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A427)
@@ -119,8 +119,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\LED\led.c)(0x66799070)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
-I (..\HARDWARE\LED\led.h)(0x6679903F)
+F (..\HARDWARE\LED\led.c)(0x66A12B09)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
+I (..\HARDWARE\LED\led.h)(0x66A12B0E)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -150,7 +150,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\HARDWARE\KEY_16\key.c)(0x667990DC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+F (..\HARDWARE\KEY_16\key.c)(0x66A1336B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
 I (..\HARDWARE\KEY_16\key.h)(0x66757EE3)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -182,7 +182,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x5F379D3C)
-I (..\HARDWARE\LED\led.h)(0x6679903F)
+I (..\HARDWARE\LED\led.h)(0x66A12B0E)
+I (..\SYSTEM\log\log.h)(0x6675A1AE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 F (..\HARDWARE\OLED\oled.c)(0x6425C03A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
 I (..\HARDWARE\OLED\oled.h)(0x6435761F)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -214,10 +216,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (..\HARDWARE\OLED\oledfont.h)(0x667639E9)
+I (..\HARDWARE\OLED\oledfont.h)(0x66A114EC)
 I (..\SYSTEM\delay\delay.h)(0x5F379D3C)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
-F (..\HARDWARE\fpm383c\FPM383C.c)(0x66767311)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\fpm383c.o --omf_browse ..\obj\fpm383c.crf --depend ..\obj\fpm383c.d)
+F (..\HARDWARE\fpm383c\FPM383C.c)(0x66A121D7)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\fpm383c.o --omf_browse ..\obj\fpm383c.crf --depend ..\obj\fpm383c.d)
 I (..\HARDWARE\fpm383c\FPM383C.h)(0x667672CA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
@@ -283,7 +285,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\LED\led.h)(0x6679903F)
+I (..\HARDWARE\LED\led.h)(0x66A12B0E)
 F (..\HARDWARE\RTC\rtc.c)(0x53ECCF16)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\rtc.o --omf_browse ..\obj\rtc.crf --depend ..\obj\rtc.d)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
@@ -350,11 +352,11 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\mcu_sdk\wifi.h)(0x65ACB42D)
+I (..\mcu_sdk\wifi.h)(0x66799445)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-I (..\mcu_sdk\protocol.h)(0x6678351E)
-I (..\mcu_sdk\system.h)(0x667836B9)
-I (..\mcu_sdk\mcu_api.h)(0x65ABC896)
+I (..\mcu_sdk\protocol.h)(0x66799445)
+I (..\mcu_sdk\system.h)(0x66799445)
+I (..\mcu_sdk\mcu_api.h)(0x66799445)
 F (..\HARDWARE\STMFLASH\stmflash.c)(0x532D32C6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\stmflash.o --omf_browse ..\obj\stmflash.crf --depend ..\obj\stmflash.d)
 I (..\HARDWARE\STMFLASH\stmflash.h)(0x53312AD2)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
@@ -389,7 +391,7 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x5F379D3C)
 I (..\SYSTEM\usart\usart.h)(0x667586FA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\HARDWARE\RC522\rc522.c)(0x6676A3C3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\rc522.o --omf_browse ..\obj\rc522.crf --depend ..\obj\rc522.d)
+F (..\HARDWARE\RC522\rc522.c)(0x66A12993)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\rc522.o --omf_browse ..\obj\rc522.crf --depend ..\obj\rc522.d)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -419,7 +421,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x504F415F)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\HARDWARE\RC522\rc522.h)(0x6676A326)
+I (..\HARDWARE\RC522\rc522.h)(0x66A1275A)
 I (..\SYSTEM\delay\delay.h)(0x5F379D3C)
 I (..\SYSTEM\usart\usart.h)(0x667586FA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
@@ -1250,8 +1252,8 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM3\portmacro.h)(0x573F3A17)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x573F3A16)
 I (..\FreeRTOS\include\task.h)(0x573F3A16)
 I (..\FreeRTOS\include\list.h)(0x573F3A16)
-F (..\mcu_sdk\mcu_api.c)(0x667836DD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\mcu_api.o --omf_browse ..\obj\mcu_api.crf --depend ..\obj\mcu_api.d)
-I (..\mcu_sdk\wifi.h)(0x65ACB42D)
+F (..\mcu_sdk\mcu_api.c)(0x66799445)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\mcu_api.o --omf_browse ..\obj\mcu_api.crf --depend ..\obj\mcu_api.d)
+I (..\mcu_sdk\wifi.h)(0x66799445)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -1282,11 +1284,11 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-I (..\mcu_sdk\protocol.h)(0x6678351E)
-I (..\mcu_sdk\system.h)(0x667836B9)
-I (..\mcu_sdk\mcu_api.h)(0x65ABC896)
-F (..\mcu_sdk\protocol.c)(0x6678404C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\protocol.o --omf_browse ..\obj\protocol.crf --depend ..\obj\protocol.d)
-I (..\mcu_sdk\wifi.h)(0x65ACB42D)
+I (..\mcu_sdk\protocol.h)(0x66799445)
+I (..\mcu_sdk\system.h)(0x66799445)
+I (..\mcu_sdk\mcu_api.h)(0x66799445)
+F (..\mcu_sdk\protocol.c)(0x66A12823)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\protocol.o --omf_browse ..\obj\protocol.crf --depend ..\obj\protocol.d)
+I (..\mcu_sdk\wifi.h)(0x66799445)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -1317,14 +1319,14 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-I (..\mcu_sdk\protocol.h)(0x6678351E)
-I (..\mcu_sdk\system.h)(0x667836B9)
-I (..\mcu_sdk\mcu_api.h)(0x65ABC896)
-I (..\HARDWARE\LED\led.h)(0x6679903F)
+I (..\mcu_sdk\protocol.h)(0x66799445)
+I (..\mcu_sdk\system.h)(0x66799445)
+I (..\mcu_sdk\mcu_api.h)(0x66799445)
+I (..\HARDWARE\LED\led.h)(0x66A12B0E)
 I (..\SYSTEM\sys\sys.h)(0x5F3799F2)
 I (..\SYSTEM\log\log.h)(0x6675A1AE)
-F (..\mcu_sdk\system.c)(0x667836F4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\system.o --omf_browse ..\obj\system.crf --depend ..\obj\system.d)
-I (..\mcu_sdk\wifi.h)(0x65ACB42D)
+F (..\mcu_sdk\system.c)(0x66799445)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM3 -I ..\SYSTEM\log -I ..\HARDWARE\KEY_16 -I ..\HARDWARE\OLED -I ..\HARDWARE\fpm383c -I ..\HARDWARE\IWDG -I ..\HARDWARE\RTC -I ..\mcu_sdk -I ..\HARDWARE\uart3 -I ..\HARDWARE\STMFLASH -I ..\HARDWARE\RC522-IC:\Users\hc\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\obj\system.o --omf_browse ..\obj\system.crf --depend ..\obj\system.d)
+I (..\mcu_sdk\wifi.h)(0x66799445)
 I (..\USER\stm32f10x.h)(0x4D783CB5)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -1355,6 +1357,6 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-I (..\mcu_sdk\protocol.h)(0x6678351E)
-I (..\mcu_sdk\system.h)(0x667836B9)
-I (..\mcu_sdk\mcu_api.h)(0x65ABC896)
+I (..\mcu_sdk\protocol.h)(0x66799445)
+I (..\mcu_sdk\system.h)(0x66799445)
+I (..\mcu_sdk\mcu_api.h)(0x66799445)

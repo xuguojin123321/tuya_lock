@@ -1,23 +1,23 @@
 
-æ­¤MCU_SDKæ˜¯æ ¹æ®æ¶‚é¸¦å¼€å‘å¹³å°ä¸Šå®šä¹‰çš„äº§å“åŠŸèƒ½ï¼Œè‡ªåŠ¨ç”Ÿæˆçš„MCUä»£ç ã€‚åœ¨æ­¤åŸºç¡€ä¸Šè¿›è¡Œä¿®æ”¹ã€è¡¥å……ï¼Œå¯å¿«é€Ÿå®ŒæˆMCUç¨‹åºã€‚
+´ËMCU_SDKÊÇ¸ù¾ÝÍ¿Ñ»¿ª·¢Æ½Ì¨ÉÏ¶¨ÒåµÄ²úÆ·¹¦ÄÜ£¬×Ô¶¯Éú³ÉµÄMCU´úÂë¡£ÔÚ´Ë»ù´¡ÉÏ½øÐÐÐÞ¸Ä¡¢²¹³ä£¬¿É¿ìËÙÍê³ÉMCU³ÌÐò¡£
 
 
-å¼€å‘æ­¥éª¤ï¼š
+¿ª·¢²½Öè£º
 
-1ï¼šéœ€è¦æ ¹æ®äº§å“å®žé™…æƒ…å†µï¼ˆé‡ç½®wifiæŒ‰é’®å’ŒwifiçŠ¶æ€æŒ‡ç¤ºç¯å¤„ç†æ–¹å¼ã€æ˜¯å¦æ”¯æŒMCUå‡çº§ç­‰ï¼‰è¿›è¡Œé…ç½®ï¼Œè¯·åœ¨protocol.hå†…ä¿®æ”¹æ­¤é…ç½®ï¼›
+1£ºÐèÒª¸ù¾Ý²úÆ·Êµ¼ÊÇé¿ö£¨ÖØÖÃwifi°´Å¥ºÍwifi×´Ì¬Ö¸Ê¾µÆ´¦Àí·½Ê½¡¢ÊÇ·ñÖ§³ÖMCUÉý¼¶µÈ£©½øÐÐÅäÖÃ£¬ÇëÔÚprotocol.hÄÚÐÞ¸Ä´ËÅäÖÃ£»
 
-2ï¼šç§»æ¤æ­¤MCU_SDKï¼Œè¯·æŸ¥çœ‹protocol.cæ–‡ä»¶å†…çš„ç§»æ¤æ­¥éª¤,å¹¶æ­£ç¡®å®Œæˆç§»æ¤ã€‚ç§»æ¤åŽï¼Œè¯·å®Œæˆæ•°æ®ä¸‹å‘å¤„ç†ã€æ•°æ®ä¸ŠæŠ¥éƒ¨åˆ†çš„ä»£ç ï¼Œå³å¯å®Œæˆå…¨éƒ¨wifiåŠŸèƒ½ã€‚
+2£ºÒÆÖ²´ËMCU_SDK£¬Çë²é¿´protocol.cÎÄ¼þÄÚµÄÒÆÖ²²½Öè,²¢ÕýÈ·Íê³ÉÒÆÖ²¡£ÒÆÖ²ºó£¬ÇëÍê³ÉÊý¾ÝÏÂ·¢´¦Àí¡¢Êý¾ÝÉÏ±¨²¿·ÖµÄ´úÂë£¬¼´¿ÉÍê³ÉÈ«²¿wifi¹¦ÄÜ¡£
 
-æ–‡ä»¶æ¦‚è§ˆï¼š
-æ­¤MCU_SDKåŒ…æ‹¬9ä¸ªæ–‡ä»¶ï¼š
+ÎÄ¼þ¸ÅÀÀ£º
+´ËMCU_SDK°üÀ¨9¸öÎÄ¼þ£º
 	
-ï¼ˆ1ï¼‰system.cå’Œsystem.h æ˜¯wifié€šç”¨åè®®è§£æžå®žçŽ°ä»£ç ï¼Œæ— ç‰¹æ®Šæƒ…å†µï¼Œç”¨æˆ·ä¸éœ€è¦ä¿®æ”¹ã€‚
+£¨1£©system.cºÍsystem.h ÊÇwifiÍ¨ÓÃÐ­Òé½âÎöÊµÏÖ´úÂë£¬ÎÞÌØÊâÇé¿ö£¬ÓÃ»§²»ÐèÒªÐÞ¸Ä¡£
 	
-ï¼ˆ2ï¼‰mcu_api.cå’Œmcu_api.h ï¼Œç”¨æˆ·éœ€è¦ä¸»åŠ¨è°ƒç”¨çš„å‡½æ•°éƒ½åœ¨è¯¥æ–‡ä»¶å†…ã€‚
+£¨2£©mcu_api.cºÍmcu_api.h £¬ÓÃ»§ÐèÒªÖ÷¶¯µ÷ÓÃµÄº¯Êý¶¼ÔÚ¸ÃÎÄ¼þÄÚ¡£
 	
-ï¼ˆ3ï¼‰protocol.hå’Œprotocol.c ï¼ŒæŽ¥æ”¶åˆ°æ¨¡å—æ•°æ®åŽå¯¹æ•°æ®çš„å¤„ç†å‡½æ•°ï¼Œå¯åœ¨æ­¤æ–‡ä»¶å†…æ‰¾åˆ°ï¼Œéœ€è¦ç”¨æˆ·ä¿®æ”¹å®Œå–„ç›¸å…³åŠŸèƒ½ã€‚protocol.h å’Œprotocol.cæ–‡ä»¶å†…æœ‰è¯¦ç»†ä¿®æ”¹è¯´æ˜Žï¼Œè¯·ä»”ç»†é˜…è¯»ã€‚
+£¨3£©protocol.hºÍprotocol.c £¬½ÓÊÕµ½Ä£¿éÊý¾Ýºó¶ÔÊý¾ÝµÄ´¦Àíº¯Êý£¬¿ÉÔÚ´ËÎÄ¼þÄÚÕÒµ½£¬ÐèÒªÓÃ»§ÐÞ¸ÄÍêÉÆÏà¹Ø¹¦ÄÜ¡£protocol.h ºÍprotocol.cÎÄ¼þÄÚÓÐÏêÏ¸ÐÞ¸ÄËµÃ÷£¬Çë×ÐÏ¸ÔÄ¶Á¡£
 
-ï¼ˆ4ï¼‰lock_api.cå’Œlock_api.h ï¼Œç”¨æˆ·éœ€è¦ä¸»åŠ¨è°ƒç”¨çš„é—¨é”ç±»çš„ç›¸å…³å‡½æ•°å’Œé—¨é”ç±»çš„æ¨¡å—æ•°æ®å¤„ç†å‡½æ•°éƒ½åœ¨è¯¥æ–‡ä»¶å†…ã€‚
+£¨4£©lock_api.cºÍlock_api.h £¬ÓÃ»§ÐèÒªÖ÷¶¯µ÷ÓÃµÄÃÅËøÀàµÄÏà¹Øº¯ÊýºÍÃÅËøÀàµÄÄ£¿éÊý¾Ý´¦Àíº¯Êý¶¼ÔÚ¸ÃÎÄ¼þÄÚ¡£
 	
-ï¼ˆ5ï¼‰wifi.hæ–‡ä»¶åŒ…å«äº†ä»¥ä¸Šæ‰€æœ‰çš„.hæ–‡ä»¶ï¼Œå¹¶å®šä¹‰äº†ä»¥ä¸Šæ‰€æœ‰æ–‡ä»¶ä¸­çš„å‡½æ•°é‡Œç”¨åˆ°çš„å®å®šä¹‰ï¼Œä½¿ç”¨æ­¤SDKç›¸å…³å‡½æ•°ï¼Œè¯·#include "wifi.h"ã€‚
+£¨5£©wifi.hÎÄ¼þ°üº¬ÁËÒÔÉÏËùÓÐµÄ.hÎÄ¼þ£¬²¢¶¨ÒåÁËÒÔÉÏËùÓÐÎÄ¼þÖÐµÄº¯ÊýÀïÓÃµ½µÄºê¶¨Òå£¬Ê¹ÓÃ´ËSDKÏà¹Øº¯Êý£¬Çë#include "wifi.h"¡£
 

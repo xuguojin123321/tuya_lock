@@ -22,38 +22,25 @@
 *7--RST <----->PB0
 *8--VCC <----->VCC
 ************************************/
-
-extern unsigned char my_card_flag;   //判断是否是自己的卡
-extern unsigned char my_card[4];
-extern unsigned char my_card1[4];			  	//卡1
-extern unsigned char my_card2[4];				//卡2
-extern unsigned char serch_card_flag; //判断是否刷过卡 
 /*全局变量*/
 unsigned char CT[2];//卡类型
 unsigned char SN[4]; //卡号
 unsigned char RFID[16];			//存放RFID
-unsigned char lxl_bit=0;
-unsigned char card1_bit=0;  //是否识别到卡1标志位
-unsigned char card2_bit=0;
-unsigned char card3_bit=0;
-unsigned char card4_bit=0;
-unsigned char total=0;
-unsigned char lxl[4]= {196,58,104,217};
-unsigned char card_1[4]= {83,106,11,1};
-unsigned char card_2[4]= {208,121,31,57};
-unsigned char card_3[4]= {176,177,143,165};
-unsigned char card_4[4]= {5,158,10,136};
-u8 KEY[6]= {0xff,0xff,0xff,0xff,0xff,0xff};
-u8 AUDIO_OPEN[6] = {0xAA, 0x07, 0x02, 0x00, 0x09, 0xBC};
-unsigned char RFID1[16]= {0x00,0x00,0x00,0x00,0x00,0x00,0xff,0x07,0x80,0x29,0xff,0xff,0xff,0xff,0xff,0xff};
+
 /*函数声明*/
 unsigned char status;
 unsigned char s=0x08;
 
 #define   RC522_DELAY()  delay_us( 20 )
 
+void cardhex_print(char* buf)
+{
+    int i = 0;
+    LOGD("card id is===== %02x%02x%02x%02x\r\n",buf[0],buf[1],buf[2],buf[3]);
+}
+
 //执行这个函数，判断是否有卡放在刷卡器上，并且对比卡号是否是自己的卡
-void RC522_Handel(void)
+char* RC522_GetCard(void)
 {
     status = PcdRequest(PICC_REQALL,CT);//寻卡
     if(status!=MI_OK)
@@ -71,20 +58,10 @@ void RC522_Handel(void)
     if (status==MI_OK)// 防冲撞成功
     {
         status=MI_ERR;
-		LOGD("card id is===== %02x%02x%02x%02x\r\n",SN[0],SN[1],SN[2],SN[3]);	
-		/*if((SN[0]==my_card[0])&&(SN[1]==my_card[1])&&(SN[2]==my_card[2])&&(SN[3]==my_card[3]))
-		{
-			my_card_flag=1;//识别到自己的卡，标志位置1						
-		}
-		else if((SN[0]==my_card1[0])&&(SN[1]==my_card1[1])&&(SN[2]==my_card1[2])&&(SN[3]==my_card1[3]))
-		{
-			my_card_flag=1;//识别到自己的卡，标志位置1						
-		}
-		else if((SN[0]==my_card2[0])&&(SN[1]==my_card2[1])&&(SN[2]==my_card2[2])&&(SN[3]==my_card2[3]))
-		{
-			my_card_flag=1;//识别到自己的卡，标志位置1						
-		}*/
+		    //LOGD("card id is===== %02x%02x%02x%02x\r\n",SN[0],SN[1],SN[2],SN[3]);
+        return SN;
     }
+    return NULL;
 }
 
 

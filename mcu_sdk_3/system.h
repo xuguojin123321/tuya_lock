@@ -1,15 +1,15 @@
 /**********************************Copyright (c)**********************************
-**                       ç‰ˆæƒæ‰€æœ‰ (C), 2015-2020, æ¶‚é¸¦ç§‘æŠ€
+**                       °æÈ¨ËùÓĞ (C), 2015-2020, Í¿Ñ»¿Æ¼¼
 **
 **                             http://www.tuya.com
 **
 *********************************************************************************/
 /**
  * @file    system.h
- * @author  æ¶‚é¸¦ç»¼åˆåè®®å¼€å‘ç»„
+ * @author  Í¿Ñ»×ÛºÏĞ­Òé¿ª·¢×é
  * @version v1.0.7
  * @date    2020.11.9
- * @brief   ä¸²å£æ•°æ®å¤„ç†ï¼Œç”¨æˆ·æ— éœ€å…³å¿ƒè¯¥æ–‡ä»¶å®ç°å†…å®¹
+ * @brief   ´®¿ÚÊı¾İ´¦Àí£¬ÓÃ»§ÎŞĞè¹ØĞÄ¸ÃÎÄ¼şÊµÏÖÄÚÈİ
  */
 
 
@@ -23,7 +23,7 @@
 #endif
 
 //=============================================================================
-//å¸§çš„å­—èŠ‚é¡ºåº
+//Ö¡µÄ×Ö½ÚË³Ğò
 //=============================================================================
 #define         HEAD_FIRST                      0
 #define         HEAD_SECOND                     1        
@@ -34,49 +34,49 @@
 #define         DATA_START                      6
 
 //=============================================================================
-//æ•°æ®å¸§ç±»å‹
+//Êı¾İÖ¡ÀàĞÍ
 //=============================================================================
-#define         PRODUCT_INFO_CMD                0x01                            //äº§å“ä¿¡æ¯
-#define         WIFI_STATE_CMD                  0x02                            //wifiå·¥ä½œçŠ¶æ€	
-#define         WIFI_RESET_CMD                  0x03                            //é‡ç½®wifi
-#define         WIFI_MODE_CMD                   0x04                            //é€‰æ‹©smartconfig/APæ¨¡å¼
+#define         PRODUCT_INFO_CMD                0x01                            //²úÆ·ĞÅÏ¢
+#define         WIFI_STATE_CMD                  0x02                            //wifi¹¤×÷×´Ì¬	
+#define         WIFI_RESET_CMD                  0x03                            //ÖØÖÃwifi
+#define         WIFI_MODE_CMD                   0x04                            //Ñ¡Ôñsmartconfig/APÄ£Ê½
 #ifdef STATE_FAST_UPLOAD_ENABLE
-#define         STATE_UPLOAD_CMD                0x18                            //å®æ—¶çŠ¶æ€å¿«é€Ÿä¸ŠæŠ¥
-#define         STATE_RC_UPLOAD_CMD             0x19                            //è®°å½•å‹çŠ¶æ€å¿«é€Ÿä¸ŠæŠ¥
+#define         STATE_UPLOAD_CMD                0x18                            //ÊµÊ±×´Ì¬¿ìËÙÉÏ±¨
+#define         STATE_RC_UPLOAD_CMD             0x19                            //¼ÇÂ¼ĞÍ×´Ì¬¿ìËÙÉÏ±¨
 #else
-#define         STATE_UPLOAD_CMD                0x05                            //å®æ—¶çŠ¶æ€ä¸ŠæŠ¥
-#define         STATE_RC_UPLOAD_CMD             0x08                            //è®°å½•å‹çŠ¶æ€ä¸ŠæŠ¥
+#define         STATE_UPLOAD_CMD                0x05                            //ÊµÊ±×´Ì¬ÉÏ±¨
+#define         STATE_RC_UPLOAD_CMD             0x08                            //¼ÇÂ¼ĞÍ×´Ì¬ÉÏ±¨
 #endif
-#define         GET_LOCAL_TIME_CMD              0x06                            //è·å–æœ¬åœ°æ—¶é—´
-#define         WIFI_TEST_CMD                   0x07                            //wifiåŠŸèƒ½æµ‹è¯•
-#define         DATA_QUERT_CMD                  0x09                            //å‘½ä»¤ä¸‹å‘
-#define         WIFI_UG_REQ_CMD                 0x0a                            //MCUè¯·æ±‚WIFIæ¨¡å—å›ºä»¶å‡çº§
-#define         ROUTE_RSSI_CMD                  0x0b                            //æŸ¥è¯¢å½“å‰è¿æ¥è·¯ç”±å™¨ä¿¡å·å¼ºåº¦
-#define         MCU_UG_REQ_CMD                  0x0c                            //MCUè¯·æ±‚MCUå›ºä»¶å‡çº§
-#define         UPDATE_START_CMD                0x0d                            //MCUå‡çº§å¼€å§‹
-#define         UPDATE_TRANS_CMD                0x0e                            //MCUå‡çº§ä¼ è¾“
-#define         GET_GL_TIME_CMD                 0x10                            //è·å–æ ¼æ—æ—¶é—´
-#define         GET_DP_CACHE_CMD                0x15                            //è·å–dpç¼“å­˜æŒ‡ä»¤
-#define         REPORTED_MCU_SN_CMD             0x17                            //ä¸ŠæŠ¥MCUçš„SN
+#define         GET_LOCAL_TIME_CMD              0x06                            //»ñÈ¡±¾µØÊ±¼ä
+#define         WIFI_TEST_CMD                   0x07                            //wifi¹¦ÄÜ²âÊÔ
+#define         DATA_QUERT_CMD                  0x09                            //ÃüÁîÏÂ·¢
+#define         WIFI_UG_REQ_CMD                 0x0a                            //MCUÇëÇóWIFIÄ£¿é¹Ì¼şÉı¼¶
+#define         ROUTE_RSSI_CMD                  0x0b                            //²éÑ¯µ±Ç°Á¬½ÓÂ·ÓÉÆ÷ĞÅºÅÇ¿¶È
+#define         MCU_UG_REQ_CMD                  0x0c                            //MCUÇëÇóMCU¹Ì¼şÉı¼¶
+#define         UPDATE_START_CMD                0x0d                            //MCUÉı¼¶¿ªÊ¼
+#define         UPDATE_TRANS_CMD                0x0e                            //MCUÉı¼¶´«Êä
+#define         GET_GL_TIME_CMD                 0x10                            //»ñÈ¡¸ñÁÖÊ±¼ä
+#define         GET_DP_CACHE_CMD                0x15                            //»ñÈ¡dp»º´æÖ¸Áî
+#define         REPORTED_MCU_SN_CMD             0x17                            //ÉÏ±¨MCUµÄSN
 #ifdef LOCK_KEEP_ALIVE
-#define         GET_WIFI_STATE_CMD              0x1A                            //è·å–WiFiçŠ¶æ€
+#define         GET_WIFI_STATE_CMD              0x1A                            //»ñÈ¡WiFi×´Ì¬
 #endif
-#define         WIFI_RESET_NOTICE_CMD           0x25                            //æ¨¡å—é‡ç½®çŠ¶æ€é€šçŸ¥
+#define         WIFI_RESET_NOTICE_CMD           0x25                            //Ä£¿éÖØÖÃ×´Ì¬Í¨Öª
 
 
 
 //=============================================================================
-#define MCU_RX_VER              0x00                                            //MCUæ¥æ”¶åè®®ç‰ˆæœ¬å·
-#define MCU_TX_VER              0x00                                            //MCUå‘é€åè®®ç‰ˆæœ¬å·
-#define PROTOCOL_HEAD           0x07                                            //å›ºå®šåè®®å¤´é•¿åº¦
-#define FIRM_UPDATA_SIZE        256                                             //å‡çº§åŒ…å¤§å°
+#define MCU_RX_VER              0x00                                            //MCU½ÓÊÕĞ­Òé°æ±¾ºÅ
+#define MCU_TX_VER              0x00                                            //MCU·¢ËÍĞ­Òé°æ±¾ºÅ
+#define PROTOCOL_HEAD           0x07                                            //¹Ì¶¨Ğ­ÒéÍ·³¤¶È
+#define FIRM_UPDATA_SIZE        256                                             //Éı¼¶°ü´óĞ¡
 #define FRAME_FIRST             0x55
 #define FRAME_SECOND            0xaa
 
 //============================================================================= 
-SYSTEM_EXTERN unsigned char wifi_data_process_buf[PROTOCOL_HEAD + WIFI_DATA_PROCESS_LMT];       //ä¸²å£æ•°æ®å¤„ç†ç¼“å­˜
-SYSTEM_EXTERN unsigned char volatile wifi_uart_rx_buf[PROTOCOL_HEAD + WIFI_UART_RECV_BUF_LMT];  //ä¸²å£æ¥æ”¶ç¼“å­˜
-SYSTEM_EXTERN unsigned char wifi_uart_tx_buf[PROTOCOL_HEAD + WIFIR_UART_SEND_BUF_LMT];          //ä¸²å£å‘é€ç¼“å­˜
+SYSTEM_EXTERN unsigned char wifi_data_process_buf[PROTOCOL_HEAD + WIFI_DATA_PROCESS_LMT];       //´®¿ÚÊı¾İ´¦Àí»º´æ
+SYSTEM_EXTERN unsigned char volatile wifi_uart_rx_buf[PROTOCOL_HEAD + WIFI_UART_RECV_BUF_LMT];  //´®¿Ú½ÓÊÕ»º´æ
+SYSTEM_EXTERN unsigned char wifi_uart_tx_buf[PROTOCOL_HEAD + WIFIR_UART_SEND_BUF_LMT];          //´®¿Ú·¢ËÍ»º´æ
 //
 SYSTEM_EXTERN volatile unsigned char *queue_in;
 SYSTEM_EXTERN volatile unsigned char *queue_out;
@@ -84,70 +84,70 @@ SYSTEM_EXTERN volatile unsigned char *queue_out;
 SYSTEM_EXTERN unsigned char stop_update_flag;
 
 #ifndef WIFI_CONTROL_SELF_MODE
-SYSTEM_EXTERN unsigned char reset_wifi_flag;                                                  //é‡ç½®wifiæ ‡å¿—(TRUE:æˆåŠŸ/FALSE:å¤±è´¥)
-SYSTEM_EXTERN unsigned char set_wifimode_flag;                                                //è®¾ç½®WIFIå·¥ä½œæ¨¡å¼æ ‡å¿—(TRUE:æˆåŠŸ/FALSE:å¤±è´¥)
-SYSTEM_EXTERN unsigned char wifi_work_state;                                                  //wifiæ¨¡å—å½“å‰å·¥ä½œçŠ¶æ€
+SYSTEM_EXTERN unsigned char reset_wifi_flag;                                                  //ÖØÖÃwifi±êÖ¾(TRUE:³É¹¦/FALSE:Ê§°Ü)
+SYSTEM_EXTERN unsigned char set_wifimode_flag;                                                //ÉèÖÃWIFI¹¤×÷Ä£Ê½±êÖ¾(TRUE:³É¹¦/FALSE:Ê§°Ü)
+SYSTEM_EXTERN unsigned char wifi_work_state;                                                  //wifiÄ£¿éµ±Ç°¹¤×÷×´Ì¬
 #endif
 
 
 /**
- * @brief  å†™wifi_uartå­—èŠ‚
- * @param[in] {dest} ç¼“å­˜åŒºå…¶å®åœ°å€
- * @param[in] {byte} å†™å…¥å­—èŠ‚å€¼
- * @return å†™å…¥å®Œæˆåçš„æ€»é•¿åº¦
+ * @brief  Ğ´wifi_uart×Ö½Ú
+ * @param[in] {dest} »º´æÇøÆäÊµµØÖ·
+ * @param[in] {byte} Ğ´Èë×Ö½ÚÖµ
+ * @return Ğ´ÈëÍê³ÉºóµÄ×Ü³¤¶È
  */
 unsigned short set_wifi_uart_byte(unsigned short dest, unsigned char byte);
 
 /**
- * @brief  å†™wifi_uart_buffer
- * @param[in] {dest} ç›®æ ‡åœ°å€
- * @param[in] {src} æºåœ°å€
- * @param[in] {len} æ•°æ®é•¿åº¦
- * @return å†™å…¥ç»“æŸçš„ç¼“å­˜åœ°å€
+ * @brief  Ğ´wifi_uart_buffer
+ * @param[in] {dest} Ä¿±êµØÖ·
+ * @param[in] {src} Ô´µØÖ·
+ * @param[in] {len} Êı¾İ³¤¶È
+ * @return Ğ´Èë½áÊøµÄ»º´æµØÖ·
  */
 unsigned short set_wifi_uart_buffer(unsigned short dest, unsigned char *src, unsigned short len);
 
 /**
- * @brief  è®¡ç®—æ ¡éªŒå’Œ
- * @param[in] {pack} æ•°æ®æºæŒ‡é’ˆ
- * @param[in] {pack_len} è®¡ç®—æ ¡éªŒå’Œé•¿åº¦
- * @return æ ¡éªŒå’Œ
+ * @brief  ¼ÆËãĞ£ÑéºÍ
+ * @param[in] {pack} Êı¾İÔ´Ö¸Õë
+ * @param[in] {pack_len} ¼ÆËãĞ£ÑéºÍ³¤¶È
+ * @return Ğ£ÑéºÍ
  */
 unsigned char get_check_sum(unsigned char *pack, unsigned short pack_len);
 
 /**
- * @brief  å‘wifiä¸²å£å‘é€ä¸€å¸§æ•°æ®
- * @param[in] {fr_type} å¸§ç±»å‹
- * @param[in] {fr_ver} å¸§ç‰ˆæœ¬
- * @param[in] {len} æ•°æ®é•¿åº¦
+ * @brief  Ïòwifi´®¿Ú·¢ËÍÒ»Ö¡Êı¾İ
+ * @param[in] {fr_type} Ö¡ÀàĞÍ
+ * @param[in] {fr_ver} Ö¡°æ±¾
+ * @param[in] {len} Êı¾İ³¤¶È
  * @return Null
  */
 void wifi_uart_write_frame(unsigned char fr_type, unsigned short len);
 
 /**
- * @brief  è·å–æŒ‡å®šDPIDåœ¨æ•°ç»„ä¸­çš„åºå·
+ * @brief  »ñÈ¡Ö¸¶¨DPIDÔÚÊı×éÖĞµÄĞòºÅ
  * @param[in] {dpid} dpid
- * @param[out] {p_dp_type} dp ç±»å‹
+ * @param[out] {p_dp_type} dp ÀàĞÍ
  * @return SUCCESS/ERROR
  */
 unsigned char get_dp_type(unsigned char dpid, unsigned char *p_dp_type);
 
 /**
- * @brief  æ•°æ®å¸§å¤„ç†
- * @param[in] {offset} æ•°æ®èµ·å§‹ä½
+ * @brief  Êı¾İÖ¡´¦Àí
+ * @param[in] {offset} Êı¾İÆğÊ¼Î»
  * @return Null
  */
 void data_handle(unsigned short offset);
 
 /**
- * @brief  åˆ¤æ–­ä¸²å£æ¥æ”¶ç¼“å­˜ä¸­æ˜¯å¦æœ‰æ•°æ®
+ * @brief  ÅĞ¶Ï´®¿Ú½ÓÊÕ»º´æÖĞÊÇ·ñÓĞÊı¾İ
  * @param  Null
- * @return æ˜¯å¦æœ‰æ•°æ®
+ * @return ÊÇ·ñÓĞÊı¾İ
  */
 unsigned char get_queue_total_data(void);
 
 /**
- * @brief  è¯»å–é˜Ÿåˆ—1å­—èŠ‚æ•°æ®
+ * @brief  ¶ÁÈ¡¶ÓÁĞ1×Ö½ÚÊı¾İ
  * @param  Null
  * @return Read the data
  */

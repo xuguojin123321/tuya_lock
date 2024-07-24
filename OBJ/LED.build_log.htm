@@ -30,45 +30,57 @@ Build target 'LED'
 compiling main.c...
 ..\SYSTEM\log\log.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(72): warning:  #223-D: function "logd" declared implicitly
+main.c(67): warning:  #223-D: function "logd" declared implicitly
+  			LOGD("===%s\n",g_password[i].key_password);
+main.c(84): warning:  #223-D: function "logd" declared implicitly
       LOGD("flash reset success");	
-main.c(87): warning:  #223-D: function "usart3_init" declared implicitly
+main.c(107): warning:  #223-D: function "usart3_init" declared implicitly
   	usart3_init(115200);
-main.c(91): warning:  #223-D: function "logd" declared implicitly
+main.c(111): warning:  #223-D: function "logd" declared implicitly
   		LOGD("RTC ERROR!   ");	
-main.c(97): warning:  #223-D: function "logd" declared implicitly
+main.c(117): warning:  #223-D: function "logd" declared implicitly
   	LOGD("init success\n");
-main.c(142): warning:  #223-D: function "logd" declared implicitly
+main.c(168): warning:  #223-D: function "logd" declared implicitly
   	LOGD("led task start\r\n");
-main.c(158): warning:  #223-D: function "RC522_Handel" declared implicitly
-          RC522_Handel();  //射频卡处理程序
-main.c(164): warning:  #223-D: function "logd" declared implicitly
+main.c(189): warning:  #223-D: function "logd" declared implicitly
   	LOGD("tuya task start\r\n");
-main.c(180): warning:  #223-D: function "logd" declared implicitly
+main.c(220): warning:  #223-D: function "logd" declared implicitly
+              LOGD("open door by");
+main.c(227): warning:  #223-D: function "logd" declared implicitly
+      LOGD("no this card");
+main.c(238): warning:  #223-D: function "logd" declared implicitly
       LOGD("add key password");
-main.c(175): warning:  #177-D: variable "j"  was declared but never referenced
+main.c(233): warning:  #177-D: variable "j"  was declared but never referenced
       int i = 0,j=0;
-main.c(229): warning:  #223-D: function "logd" declared implicitly
+main.c(306): warning:  #223-D: function "logd" declared implicitly
+                      LOGD("add card id %02x%02x%02x%02x\r\n",g_password[i].id_card[0],g_password[i].id_card[1],g_password[i].id_card[2],g_password[i].id_card[3]);
+main.c(318): warning:  #223-D: function "logd" declared implicitly
+          LOGD(">>>超时退出<<<");
+main.c(327): warning:  #223-D: function "logd" declared implicitly
       LOGD("————注册指纹模式————");
-main.c(250): warning:  #111-D: statement is unreachable
-          vTaskDelay(10);
-main.c(280): warning:  #223-D: function "logd" declared implicitly
+main.c(389): warning:  #223-D: function "logd" declared implicitly
+              LOGD("del key");
+main.c(411): warning:  #223-D: function "logd" declared implicitly
       LOGD("choose user add type");
-main.c(309): warning:  #223-D: function "logd" declared implicitly
+main.c(443): warning:  #223-D: function "logd" declared implicitly
+      LOGD("choose user del type");
+main.c(478): warning:  #223-D: function "logd" declared implicitly
       LOGD("open key password");
-main.c(304): warning:  #177-D: variable "j"  was declared but never referenced
+main.c(492): warning:  #117-D: non-void function "keypassword_open_process"  should return a value
+              return;
+main.c(516): warning:  #117-D: non-void function "keypassword_open_process"  should return a value
+              return;
+main.c(473): warning:  #177-D: variable "j"  was declared but never referenced
       int i = 0,j=0;
-main.c(363): warning:  #223-D: function "logd" declared implicitly
-                  LOGD("按键配网 SMART_CONFIG %d\r\n",set_wifimode_flag);
-main.c(392): warning:  #223-D: function "logd" declared implicitly
+main.c(547): warning:  #223-D: function "logd" declared implicitly
+                      LOGD("按键配网 SMART_CONFIG %d\r\n",set_wifimode_flag);
+main.c(596): warning:  #223-D: function "logd" declared implicitly
   	LOGD("key task start");
-main.c(402): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-  			OLED_ShowString(0,0,buf,16);
-main.c: 18 warnings, 0 errors
+main.c: 24 warnings, 0 errors
 linking...
-Program Size: Code=31560 RO-data=3188 RW-data=480 ZI-data=15752  
+Program Size: Code=33636 RO-data=3240 RW-data=748 ZI-data=15756  
 FromELF: creating hex file...
-"..\OBJ\LED.axf" - 0 Error(s), 18 Warning(s).
+"..\OBJ\LED.axf" - 0 Error(s), 24 Warning(s).
 
 <h2>Software Packages used:</h2>
 

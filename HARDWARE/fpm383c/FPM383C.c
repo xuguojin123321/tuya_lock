@@ -235,6 +235,7 @@ int FPM383C_Identify(void)
 void FPM383C_Add(uint16_t PageID)
 {
     LOGD(">>>请将需要注册的手指按压指纹模块4次<<<");
+	OLED_ShowString(0,4,"input finger count 4",16);
     FPM383C_ControlLED(PS_BlueLEDBuffer,2000);
     delay_ms(5);
     FPM383C_Enroll(PageID,10000);		//注册指纹模式
@@ -455,7 +456,7 @@ int FPM383C_Loop(void)
         FPM383C_ControlLED(PS_BlueLEDBuffer,2000);
         delay_ms(5);
         iRet = FPM383C_Identify();						//验证指纹模式
-        delay_ms(500);
+        delay_ms(50);
         FPM383C_Sleep();
         ScanStatus = 0;
 	}

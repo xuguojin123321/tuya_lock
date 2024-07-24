@@ -17,6 +17,6 @@
 #define OPEN PBout(0)// PB5
 #define BEEP PBout(1)// PB5
 void LED_Init(void);//≥ı ºªØ
-
+void open_door(void);
 		 				    
 #endif

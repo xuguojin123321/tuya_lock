@@ -9,6 +9,7 @@
 
 #include "key.h"
 #include "led.h"
+#include "log.h"
 
 void KEY_UserConfig(void){
 
@@ -99,7 +100,7 @@ int switch_keyvalue(int8_t value)
 
 }
 void KEY_Read(int8_t *key){
-	
+	*key = -1;
 	hang1();
 	if(key1_Input == RESET||key2_Input == RESET||key3_Input == RESET||key4_Input == RESET){ //0 °´ÏÂ
 	
@@ -239,6 +240,7 @@ void KEY_Read(int8_t *key){
     *key = switch_keyvalue(*key);
 	if(*key != -1)
 	{
+		printf("key is %d\r\n",*key);
 		BEEP = 0;
 		delay_ms(50);
 		BEEP = 1;

@@ -1,15 +1,15 @@
 /**********************************Copyright (c)**********************************
-**                       ç‰ˆæƒæ‰€æœ‰ (C), 2015-2020, æ¶‚é¸¦ç§‘æŠ€
+**                       °æÈ¨ËùÓĞ (C), 2015-2020, Í¿Ñ»¿Æ¼¼
 **
 **                             http://www.tuya.com
 **
 *********************************************************************************/
 /**
  * @file    lock_api.c
- * @author  æ¶‚é¸¦ç»¼åˆåè®®å¼€å‘ç»„
+ * @author  Í¿Ñ»×ÛºÏĞ­Òé¿ª·¢×é
  * @version v1.0.7
  * @date    2020.11.9
- * @brief   é—¨é”ä¸‹å‘/ä¸ŠæŠ¥æ•°æ®å¤„ç†å‡½æ•°ï¼Œæ­¤æ–‡ä»¶ä¸‹å‡½æ•°æ— é¡»ç”¨æˆ·ä¿®æ”¹,ç”¨æˆ·éœ€è¦è°ƒç”¨çš„æ–‡ä»¶éƒ½åœ¨è¯¥æ–‡ä»¶å†…
+ * @brief   ÃÅËøÏÂ·¢/ÉÏ±¨Êı¾İ´¦Àíº¯Êı£¬´ËÎÄ¼şÏÂº¯ÊıÎŞĞëÓÃ»§ĞŞ¸Ä,ÓÃ»§ĞèÒªµ÷ÓÃµÄÎÄ¼ş¶¼ÔÚ¸ÃÎÄ¼şÄÚ
  */
 
 
@@ -19,10 +19,10 @@
 
 #ifdef LOCK_API_ENABLE
 /**
- * @brief  MCUè¯·æ±‚è·å–äº‘ç«¯ä¸´æ—¶å¯†ç 
+ * @brief  MCUÇëÇó»ñÈ¡ÔÆ¶ËÁÙÊ±ÃÜÂë
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ temp_pass_handle å‡½æ•°å†…å¯è·å–ä¸´æ—¶å¯†ç å’Œæœ‰æ•ˆæœŸ
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ temp_pass_handle º¯ÊıÄÚ¿É»ñÈ¡ÁÙÊ±ÃÜÂëºÍÓĞĞ§ÆÚ
  */
 void mcu_get_temp_pass(void)
 { 
@@ -30,50 +30,50 @@ void mcu_get_temp_pass(void)
 }
 
 /**
- * @brief  MCUè¯·æ±‚ä¸´æ—¶å¯†ç è¿”å›å‡½æ•°
- * @param[in] {suc_flag} è¯·æ±‚æ ‡å¿—(1:æˆåŠŸ;0:å¤±è´¥)
- * @param[in] {gl_time} å¯†ç æœ‰æ•ˆæœŸæ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {pass} ä¸´æ—¶å¯†ç æ•°æ®(ascllç è¡¨ç¤ºï¼Œé•¿åº¦pass_len)
- * @param[in] {pass_len} ä¸´æ—¶å¯†ç æ•°æ®é•¿åº¦
+ * @brief  MCUÇëÇóÁÙÊ±ÃÜÂë·µ»Øº¯Êı
+ * @param[in] {suc_flag} ÇëÇó±êÖ¾(1:³É¹¦;0:Ê§°Ü)
+ * @param[in] {gl_time} ÃÜÂëÓĞĞ§ÆÚ¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {pass} ÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë±íÊ¾£¬³¤¶Èpass_len)
+ * @param[in] {pass_len} ÁÙÊ±ÃÜÂëÊı¾İ³¤¶È
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨ mcu_get_temp_pass æˆåŠŸå,è¯¥å‡½æ•°å†…å¯ä¸´æ—¶å¯†ç å’Œæœ‰æ•ˆæœŸ
+ * @note   MCUÖ÷¶¯µ÷ÓÃ mcu_get_temp_pass ³É¹¦ºó,¸Ãº¯ÊıÄÚ¿ÉÁÙÊ±ÃÜÂëºÍÓĞĞ§ÆÚ
  */
 void temp_pass_handle(unsigned char suc_flag, const unsigned char gl_time[], 
                       const unsigned char pass[], unsigned char pass_len)
 { 
-    //#error "è¯·è‡ªè¡Œå®Œæˆä¸´æ—¶å¯†ç ç›¸å…³å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³ÉÁÙÊ±ÃÜÂëÏà¹Ø´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
 
     /*
-    suc_flagä¸ºæ˜¯å¦è·å–å¯†ç æˆåŠŸæ ‡å¿—ï¼Œä¸º 0 è¡¨ç¤ºå¤±è´¥ï¼Œä¸º 1 è¡¨ç¤ºæˆåŠŸ
+    suc_flagÎªÊÇ·ñ»ñÈ¡ÃÜÂë³É¹¦±êÖ¾£¬Îª 0 ±íÊ¾Ê§°Ü£¬Îª 1 ±íÊ¾³É¹¦
    */
     /*
-    gl_timeä¸ºå¯†ç æœ‰æ•ˆæœŸæ ¼æ—æ—¶é—´
-    gl_time[0]ä¸ºå¹´ä»½ , 0x00 è¡¨ ç¤º2000 å¹´
-    gl_time[1]ä¸ºæœˆä»½ï¼Œä» 1 å¼€å§‹åˆ°12 ç»“æŸ
-    gl_time[2]ä¸ºæ—¥æœŸï¼Œä» 1 å¼€å§‹åˆ°31 ç»“æŸ
-    gl_time[3]ä¸ºæ—¶é’Ÿï¼Œä» 0 å¼€å§‹åˆ°23 ç»“æŸ
-    gl_time[4]ä¸ºåˆ†é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-    gl_time[5]ä¸ºç§’é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
+    gl_timeÎªÃÜÂëÓĞĞ§ÆÚ¸ñÁÖÊ±¼ä
+    gl_time[0]ÎªÄê·İ , 0x00 ±í Ê¾2000 Äê
+    gl_time[1]ÎªÔÂ·İ£¬´Ó 1 ¿ªÊ¼µ½12 ½áÊø
+    gl_time[2]ÎªÈÕÆÚ£¬´Ó 1 ¿ªÊ¼µ½31 ½áÊø
+    gl_time[3]ÎªÊ±ÖÓ£¬´Ó 0 ¿ªÊ¼µ½23 ½áÊø
+    gl_time[4]Îª·ÖÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+    gl_time[5]ÎªÃëÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
 
-    passæŒ‡å‘ä¸´æ—¶å¯†ç æ•°æ®(ascllç )ï¼Œé•¿åº¦pass_len
+    passÖ¸ÏòÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë)£¬³¤¶Èpass_len
    */
     if (suc_flag == 1) {
-        //è·å–ä¸´æ—¶å¯†ç æ•°æ®æˆåŠŸ
+        //»ñÈ¡ÁÙÊ±ÃÜÂëÊı¾İ³É¹¦
     }else {
-        //è·å–ä¸´æ—¶å¯†ç æ•°æ®å‡ºé”™
+        //»ñÈ¡ÁÙÊ±ÃÜÂëÊı¾İ³ö´í
     }
 }
 
 /**
- * @brief  MCUè¯·æ±‚åŠ¨æ€å¯†ç æ ¡éªŒ
- * @param[in] {time} è¯·æ±‚å½“å‰æ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {user_pass} ç”¨æˆ·è¾“å…¥çš„åŠ¨æ€å¯†ç (ä»ä½åˆ°é«˜8ä½ï¼Œå¯†ç ç”¨ASCLLä¼ å…¥ï¼ŒèŒƒå›´'0'-'9')
- * @param[in] {admin_num} ç®¡ç†å‘˜å¯†ç ç»„æ•°(0~10ï¼Œè‹¥ä¸º0åˆ™åé¢å‚æ•°æ— æ•ˆ)
- * @param[in] {admin_len} ç®¡ç†å‘˜å¯†ç é•¿åº¦(æœ€é•¿8ä¸ªå­—èŠ‚)
- * @param[in] {admin_pass} å¤šç»„ç®¡ç†å‘˜å¯†ç (å¤šç»„å¯†ç ä¾æ¬¡æ’åˆ—ï¼Œé•¿åº¦admin_num*admin_lenï¼Œç”¨ASCLLä¼ å…¥ï¼ŒèŒƒå›´'0'-'9')
+ * @brief  MCUÇëÇó¶¯Ì¬ÃÜÂëĞ£Ñé
+ * @param[in] {time} ÇëÇóµ±Ç°¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {user_pass} ÓÃ»§ÊäÈëµÄ¶¯Ì¬ÃÜÂë(´ÓµÍµ½¸ß8Î»£¬ÃÜÂëÓÃASCLL´«Èë£¬·¶Î§'0'-'9')
+ * @param[in] {admin_num} ¹ÜÀíÔ±ÃÜÂë×éÊı(0~10£¬ÈôÎª0ÔòºóÃæ²ÎÊıÎŞĞ§)
+ * @param[in] {admin_len} ¹ÜÀíÔ±ÃÜÂë³¤¶È(×î³¤8¸ö×Ö½Ú)
+ * @param[in] {admin_pass} ¶à×é¹ÜÀíÔ±ÃÜÂë(¶à×éÃÜÂëÒÀ´ÎÅÅÁĞ£¬³¤¶Èadmin_num*admin_len£¬ÓÃASCLL´«Èë£¬·¶Î§'0'-'9')
  * @return Null
- * @note   1:MCUä¸»åŠ¨è°ƒç”¨
-           2:æˆåŠŸå,åœ¨ pass_check_handle å‡½æ•°å†…å¯è·å–åŠ¨æ€å¯†ç æ ¡éªŒç»“æœ
+ * @note   1:MCUÖ÷¶¯µ÷ÓÃ
+           2:³É¹¦ºó,ÔÚ pass_check_handle º¯ÊıÄÚ¿É»ñÈ¡¶¯Ì¬ÃÜÂëĞ£Ñé½á¹û
  */
 void dynamic_pass_check(unsigned char time[], unsigned char user_pass[], unsigned char admin_num,
                         unsigned char admin_len, unsigned char admin_pass[])
@@ -97,33 +97,33 @@ void dynamic_pass_check(unsigned char time[], unsigned char user_pass[], unsigne
 }
 
 /**
- * @brief  MCUè¯·æ±‚æ ¡éªŒåŠ¨æ€å¯†ç è¿”å›å‡½æ•°
- * @param[in] {status} æ ¡éªŒæ ‡å¿—(0:æˆåŠŸ;1:å¤±è´¥;2:æœªæ¿€æ´»;3:é•¿åº¦é”™è¯¯)
+ * @brief  MCUÇëÇóĞ£Ñé¶¯Ì¬ÃÜÂë·µ»Øº¯Êı
+ * @param[in] {status} Ğ£Ñé±êÖ¾(0:³É¹¦;1:Ê§°Ü;2:Î´¼¤»î;3:³¤¶È´íÎó)
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨ dynamic_pass_check æˆåŠŸå,è¯¥å‡½æ•°å†…å¯è·å–æ ¡éªŒç»“æœ
+ * @note   MCUÖ÷¶¯µ÷ÓÃ dynamic_pass_check ³É¹¦ºó,¸Ãº¯ÊıÄÚ¿É»ñÈ¡Ğ£Ñé½á¹û
  */
 void pass_check_handle(unsigned char status)
 { 
-    //#error "è¯·è‡ªè¡Œå®ŒæˆåŠ¨æ€å¯†ç æ ¡éªŒç»“æœå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³É¶¯Ì¬ÃÜÂëĞ£Ñé½á¹û´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
 
     switch (status) {
         case 0: {
-            //å¯†ç æ ¸å¯¹é€šè¿‡
+            //ÃÜÂëºË¶ÔÍ¨¹ı
             break;
         }
 
         case 1: {
-            //å¯†ç æ ¸å¯¹å¤±è´¥
+            //ÃÜÂëºË¶ÔÊ§°Ü
             break;
         }
 
         case 2: {
-            //è®¾å¤‡æœªæ¿€æ´»
+            //Éè±¸Î´¼¤»î
             break;
         }
 
         case 3: {
-            //æ•°æ®é•¿åº¦é”™è¯¯
+            //Êı¾İ³¤¶È´íÎó
             break;
         }
 
@@ -133,10 +133,10 @@ void pass_check_handle(unsigned char status)
 }
 
 /**
- * @brief  MCUè¯·æ±‚è·å–äº‘ç«¯å¤šç»„ä¸´æ—¶å¯†ç 
+ * @brief  MCUÇëÇó»ñÈ¡ÔÆ¶Ë¶à×éÁÙÊ±ÃÜÂë
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ mul_temp_pass_data å‡½æ•°å†…å¯è·å–ä¸´æ—¶å¯†ç å‚æ•°å’Œæœ‰æ•ˆæœŸæ—¶é™
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ mul_temp_pass_data º¯ÊıÄÚ¿É»ñÈ¡ÁÙÊ±ÃÜÂë²ÎÊıºÍÓĞĞ§ÆÚÊ±ÏŞ
  */
 void mcu_get_mul_temp_pass(void)
 { 
@@ -145,60 +145,60 @@ void mcu_get_mul_temp_pass(void)
 
 
 /**
- * @brief  MCUè¯·æ±‚å¤šç»„ä¸´æ—¶å¯†ç å¤„ç†å‡½æ•°
- * @param[in] {suc_flag} è¯·æ±‚æ ‡å¿—(1:æˆåŠŸ;0:å¤±è´¥)
- * @param[in] {pass_ser} å½“å‰ç»„å¯†ç ç¼–å·(å®é™…ç¼–å·é¡»+900)
- * @param[in] {pass_valcnt} å½“å‰ç»„å¯†ç æœ‰æ•ˆæ¬¡æ•°(0:ä¸é™æ¬¡æ•°;1:ä¸€æ¬¡æ€§)
- * @param[in] {pass_sta} å¯†ç å½“å‰çŠ¶æ€(0:æœ‰æ•ˆ;1:è¢«åˆ é™¤æ— æ•ˆ)
- * @param[in] {gl_start} å¯†ç ç”Ÿæ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {gl_end} å¯†ç å¤±æ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {pass} ä¸´æ—¶å¯†ç æ•°æ®(ascllç è¡¨ç¤ºï¼Œé•¿åº¦pass_len)
- * @param[in] {pass_len} ä¸´æ—¶å¯†ç æ•°æ®é•¿åº¦
+ * @brief  MCUÇëÇó¶à×éÁÙÊ±ÃÜÂë´¦Àíº¯Êı
+ * @param[in] {suc_flag} ÇëÇó±êÖ¾(1:³É¹¦;0:Ê§°Ü)
+ * @param[in] {pass_ser} µ±Ç°×éÃÜÂë±àºÅ(Êµ¼Ê±àºÅĞë+900)
+ * @param[in] {pass_valcnt} µ±Ç°×éÃÜÂëÓĞĞ§´ÎÊı(0:²»ÏŞ´ÎÊı;1:Ò»´ÎĞÔ)
+ * @param[in] {pass_sta} ÃÜÂëµ±Ç°×´Ì¬(0:ÓĞĞ§;1:±»É¾³ıÎŞĞ§)
+ * @param[in] {gl_start} ÃÜÂëÉúĞ§ÈÕÆÚ¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {gl_end} ÃÜÂëÊ§Ğ§ÈÕÆÚ¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {pass} ÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë±íÊ¾£¬³¤¶Èpass_len)
+ * @param[in] {pass_len} ÁÙÊ±ÃÜÂëÊı¾İ³¤¶È
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨ mcu_get_mul_temp_pass æˆåŠŸåï¼Œè¯¥å‡½æ•°å†…å¯å¤šæ¬¡åˆ†åˆ«è·å–æ¯ç»„çš„ä¸´æ—¶å¯†ç ä¸æœ‰æ•ˆæœŸé™
+ * @note   MCUÖ÷¶¯µ÷ÓÃ mcu_get_mul_temp_pass ³É¹¦ºó£¬¸Ãº¯ÊıÄÚ¿É¶à´Î·Ö±ğ»ñÈ¡Ã¿×éµÄÁÙÊ±ÃÜÂëÓëÓĞĞ§ÆÚÏŞ
  */
 static void mul_temp_pass_data(unsigned char suc_flag, unsigned char pass_ser, 
                                unsigned char pass_valcnt, unsigned char pass_sta, 
                                const unsigned char gl_start[], const unsigned char gl_end[], 
                                const unsigned char pass[], unsigned char pass_len)
 { 
-    //#error "è¯·è‡ªè¡Œå®Œæˆå¤šç»„ä¸´æ—¶å¯†ç ä¿¡æ¯å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³É¶à×éÁÙÊ±ÃÜÂëĞÅÏ¢´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
 
     /*
-    suc_flagä¸ºæ˜¯å¦è·å–å¯†ç æˆåŠŸæ ‡å¿—ï¼Œä¸º 0 è¡¨ç¤ºå¤±è´¥ï¼Œä¸º 1 è¡¨ç¤ºæˆåŠŸ
+    suc_flagÎªÊÇ·ñ»ñÈ¡ÃÜÂë³É¹¦±êÖ¾£¬Îª 0 ±íÊ¾Ê§°Ü£¬Îª 1 ±íÊ¾³É¹¦
    */
     /*
-    pass_serä¸ºå¯†ç ç¼–å·
-    pass_valcntä¸ºå¯†ç æœ‰æ•ˆæ¬¡æ•°
-    pass_staä¸ºå¯†ç å½“å‰çŠ¶æ€
+    pass_serÎªÃÜÂë±àºÅ
+    pass_valcntÎªÃÜÂëÓĞĞ§´ÎÊı
+    pass_staÎªÃÜÂëµ±Ç°×´Ì¬
 
-    gl_startä¸ºå¯†ç ç”Ÿæ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´
-    gl_start[0]ä¸ºå¹´ä»½ , 0x00 è¡¨ ç¤º2000 å¹´
-    gl_start[1]ä¸ºæœˆä»½ï¼Œä» 1 å¼€å§‹åˆ°12 ç»“æŸ
-    gl_start[2]ä¸ºæ—¥æœŸï¼Œä» 1 å¼€å§‹åˆ°31 ç»“æŸ
-    gl_start[3]ä¸ºæ—¶é’Ÿï¼Œä» 0 å¼€å§‹åˆ°23 ç»“æŸ
-    gl_start[4]ä¸ºåˆ†é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-    gl_start[5]ä¸ºç§’é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-    gl_endä¸ºå¯†ç æˆªè‡³æ—¥æœŸæ ¼æ—æ—¶é—´ï¼ŒåŒgl_start
+    gl_startÎªÃÜÂëÉúĞ§ÈÕÆÚ¸ñÁÖÊ±¼ä
+    gl_start[0]ÎªÄê·İ , 0x00 ±í Ê¾2000 Äê
+    gl_start[1]ÎªÔÂ·İ£¬´Ó 1 ¿ªÊ¼µ½12 ½áÊø
+    gl_start[2]ÎªÈÕÆÚ£¬´Ó 1 ¿ªÊ¼µ½31 ½áÊø
+    gl_start[3]ÎªÊ±ÖÓ£¬´Ó 0 ¿ªÊ¼µ½23 ½áÊø
+    gl_start[4]Îª·ÖÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+    gl_start[5]ÎªÃëÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+    gl_endÎªÃÜÂë½ØÖÁÈÕÆÚ¸ñÁÖÊ±¼ä£¬Í¬gl_start
 
-    passæŒ‡å‘ä¸´æ—¶å¯†ç æ•°æ®(ascllç )ï¼Œé•¿åº¦pass_len
+    passÖ¸ÏòÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë)£¬³¤¶Èpass_len
    */
 
     /*
-    æ³¨ï¼šè·å–å¤šç»„å¯†ç æˆåŠŸï¼Œè¯¥å‡½æ•°ä¼šè¿›å…¥å¤šæ¬¡ï¼Œ
-        ç›´è‡³å°†å¤šç»„ä¸´æ—¶å¯†ç å…¨éƒ¨è·å–å®Œç»“æŸï¼›
-        è‹¥å¤±è´¥åˆ™åªè¿›å…¥ä¸€æ¬¡ã€‚
+    ×¢£º»ñÈ¡¶à×éÃÜÂë³É¹¦£¬¸Ãº¯Êı»á½øÈë¶à´Î£¬
+        Ö±ÖÁ½«¶à×éÁÙÊ±ÃÜÂëÈ«²¿»ñÈ¡Íê½áÊø£»
+        ÈôÊ§°ÜÔòÖ»½øÈëÒ»´Î¡£
    */
     if (suc_flag == 1) {
-        //è·å–å¤šç»„ä¸´æ—¶å¯†ç æ•°æ®æˆåŠŸ
+        //»ñÈ¡¶à×éÁÙÊ±ÃÜÂëÊı¾İ³É¹¦
     }else {
-        //è·å–å¤šç»„ä¸´æ—¶å¯†ç æ•°æ®å‡ºé”™
+        //»ñÈ¡¶à×éÁÙÊ±ÃÜÂëÊı¾İ³ö´í
     }
 }
 
 /**
- * @brief  MCUè¯·æ±‚å¤šç»„ä¸´æ—¶å¯†ç è¿”å›å‡½æ•°
- * @param[in] {data} è¿”å›æ•°æ®
+ * @brief  MCUÇëÇó¶à×éÁÙÊ±ÃÜÂë·µ»Øº¯Êı
+ * @param[in] {data} ·µ»ØÊı¾İ
  * @return Null
  * @note   Null
  */
@@ -223,10 +223,10 @@ void mul_temp_pass_handle(const unsigned char data[])
 }
 
 /**
- * @brief  MCUè¯·æ±‚è·å–äº‘ç«¯ä¸´æ—¶å¯†ç (å¸¦scheduleåˆ—è¡¨)
+ * @brief  MCUÇëÇó»ñÈ¡ÔÆ¶ËÁÙÊ±ÃÜÂë(´øscheduleÁĞ±í)
  * @param  Null
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨å®Œæˆååœ¨ mul_temp_pass_data å‡½æ•°å†…å¯è·å–ç»“æœ
+ * @note   MCUÖ÷¶¯µ÷ÓÃÍê³ÉºóÔÚ mul_temp_pass_data º¯ÊıÄÚ¿É»ñÈ¡½á¹û
  */
 void mcu_get_schedule_temp_pass(void)
 { 
@@ -234,29 +234,29 @@ void mcu_get_schedule_temp_pass(void)
 }
 
 /**
- * @brief  scheduleåˆ—è¡¨æ•°æ®å¤„ç†
- * @param[in] {schedule_num} scheduleåˆ—è¡¨æ•°é‡
- * @param[in] {schedule_data} scheduleåˆ—è¡¨æ•°æ®
+ * @brief  scheduleÁĞ±íÊı¾İ´¦Àí
+ * @param[in] {schedule_num} scheduleÁĞ±íÊıÁ¿
+ * @param[in] {schedule_data} scheduleÁĞ±íÊı¾İ
  * @return Null
- * @note   MCUè°ƒç”¨ schedule_temp_pass_data æˆåŠŸåï¼Œè¯¥å‡½æ•°å†…å¯å¯¹ schedule åˆ—è¡¨æ•°æ®è¿›è¡Œå¤„ç†
+ * @note   MCUµ÷ÓÃ schedule_temp_pass_data ³É¹¦ºó£¬¸Ãº¯ÊıÄÚ¿É¶Ô schedule ÁĞ±íÊı¾İ½øĞĞ´¦Àí
  */
 static void schedule_data_process(unsigned char schedule_num, const unsigned char schedule_data[])
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆå¸¦scheduleåˆ—è¡¨å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³É´øscheduleÁĞ±í´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     
     unsigned char i = 0;
     unsigned char offset = 0;
     
     for(i=0;i<schedule_num;i++) {
         /*
-        åœ¨æ­¤æ·»åŠ scheduleåˆ—è¡¨æ•°æ®å¤„ç†
-        schedule_data[offset]: 0ï¼šéå…¨å¤©æœ‰æ•ˆï¼Œåˆ†æ—¶é—´æ®µæœ‰æ•ˆ  1ï¼šå…¨å¤©æœ‰æ•ˆã€‚åé¢çš„èµ·å§‹æ—¶é—´å’Œç»“æŸæ—¶é—´ä¸ºæ— æ•ˆæ•°æ®
-        schedule_data[offset+1]: å¼€å§‹æ—¶é—´ï¼ˆå°æ—¶ï¼‰
-        schedule_data[offset+2]: å¼€å§‹æ—¶é—´ï¼ˆåˆ†é’Ÿï¼‰
-        schedule_data[offset+3]: ç»“æŸæ—¶é—´ï¼ˆå°æ—¶ï¼‰
-        schedule_data[offset+4]: ç»“æŸæ—¶é—´ï¼ˆåˆ†é’Ÿï¼‰
-        schedule_data[offset+5]: å‘¨å¾ªç¯  Â Bit0:å‘¨æ—¥Â Bit1:å‘¨ä¸€Â Bit2:å‘¨äºŒÂ Bit3:å‘¨ä¸‰Â Bit4:å‘¨å››Â Bit5:å‘¨äº”Â Bit6:å‘¨å…­
-                                 è‹¥æ­¤æ¡scheduleå‘¨æ—¥ï¼Œå‘¨ä¸‰å¾ªç¯ï¼Œåˆ™ä¸º0x09
+        ÔÚ´ËÌí¼ÓscheduleÁĞ±íÊı¾İ´¦Àí
+        schedule_data[offset]: 0£º·ÇÈ«ÌìÓĞĞ§£¬·ÖÊ±¼ä¶ÎÓĞĞ§  1£ºÈ«ÌìÓĞĞ§¡£ºóÃæµÄÆğÊ¼Ê±¼äºÍ½áÊøÊ±¼äÎªÎŞĞ§Êı¾İ
+        schedule_data[offset+1]: ¿ªÊ¼Ê±¼ä£¨Ğ¡Ê±£©
+        schedule_data[offset+2]: ¿ªÊ¼Ê±¼ä£¨·ÖÖÓ£©
+        schedule_data[offset+3]: ½áÊøÊ±¼ä£¨Ğ¡Ê±£©
+        schedule_data[offset+4]: ½áÊøÊ±¼ä£¨·ÖÖÓ£©
+        schedule_data[offset+5]: ÖÜÑ­»·  ?Bit0:ÖÜÈÕ?Bit1:ÖÜÒ»?Bit2:ÖÜ¶ş?Bit3:ÖÜÈı?Bit4:ÖÜËÄ?Bit5:ÖÜÎå?Bit6:ÖÜÁù
+                                 Èô´ËÌõscheduleÖÜÈÕ£¬ÖÜÈıÑ­»·£¬ÔòÎª0x09
         */
         
         offset += 6;
@@ -264,19 +264,19 @@ static void schedule_data_process(unsigned char schedule_num, const unsigned cha
 }
 
 /**
- * @brief  MCUè¯·æ±‚å¸¦scheduleåˆ—è¡¨ä¸´æ—¶å¯†ç å¤„ç†å‡½æ•°
- * @param[in] {suc_flag} è¯·æ±‚æ ‡å¿—(1:æˆåŠŸ;0:å¤±è´¥)
- * @param[in] {pass_ser} å½“å‰ç»„å¯†ç ç¼–å·(å®é™…ç¼–å·é¡»+900)
- * @param[in] {pass_valcnt} å½“å‰ç»„å¯†ç æœ‰æ•ˆæ¬¡æ•°(0:ä¸é™æ¬¡æ•°;1:ä¸€æ¬¡æ€§)
- * @param[in] {pass_sta} å¯†ç å½“å‰çŠ¶æ€(0:æœ‰æ•ˆ;1:è¢«åˆ é™¤æ— æ•ˆ)
- * @param[in] {gl_start} å¯†ç ç”Ÿæ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {gl_end} å¯†ç å¤±æ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´(ä»ä½åˆ°é«˜6ä½ï¼Œåˆ†åˆ«ä¸ºå¹´æœˆæ—¥æ—¶åˆ†ç§’)
- * @param[in] {pass} ä¸´æ—¶å¯†ç æ•°æ®(ascllç è¡¨ç¤ºï¼Œé•¿åº¦pass_len)
- * @param[in] {pass_len} ä¸´æ—¶å¯†ç æ•°æ®é•¿åº¦
- * @param[in] {schedule_num} scheduleåˆ—è¡¨æ•°é‡
- * @param[in] {schedule_data} scheduleåˆ—è¡¨æ•°æ®
+ * @brief  MCUÇëÇó´øscheduleÁĞ±íÁÙÊ±ÃÜÂë´¦Àíº¯Êı
+ * @param[in] {suc_flag} ÇëÇó±êÖ¾(1:³É¹¦;0:Ê§°Ü)
+ * @param[in] {pass_ser} µ±Ç°×éÃÜÂë±àºÅ(Êµ¼Ê±àºÅĞë+900)
+ * @param[in] {pass_valcnt} µ±Ç°×éÃÜÂëÓĞĞ§´ÎÊı(0:²»ÏŞ´ÎÊı;1:Ò»´ÎĞÔ)
+ * @param[in] {pass_sta} ÃÜÂëµ±Ç°×´Ì¬(0:ÓĞĞ§;1:±»É¾³ıÎŞĞ§)
+ * @param[in] {gl_start} ÃÜÂëÉúĞ§ÈÕÆÚ¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {gl_end} ÃÜÂëÊ§Ğ§ÈÕÆÚ¸ñÁÖÊ±¼ä(´ÓµÍµ½¸ß6Î»£¬·Ö±ğÎªÄêÔÂÈÕÊ±·ÖÃë)
+ * @param[in] {pass} ÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë±íÊ¾£¬³¤¶Èpass_len)
+ * @param[in] {pass_len} ÁÙÊ±ÃÜÂëÊı¾İ³¤¶È
+ * @param[in] {schedule_num} scheduleÁĞ±íÊıÁ¿
+ * @param[in] {schedule_data} scheduleÁĞ±íÊı¾İ
  * @return Null
- * @note   MCUä¸»åŠ¨è°ƒç”¨ mcu_get_mul_temp_pass æˆåŠŸåï¼Œè¯¥å‡½æ•°å†…å¯å¤šæ¬¡åˆ†åˆ«è·å–æ¯ç»„çš„ä¸´æ—¶å¯†ç ä¸æœ‰æ•ˆæœŸé™
+ * @note   MCUÖ÷¶¯µ÷ÓÃ mcu_get_mul_temp_pass ³É¹¦ºó£¬¸Ãº¯ÊıÄÚ¿É¶à´Î·Ö±ğ»ñÈ¡Ã¿×éµÄÁÙÊ±ÃÜÂëÓëÓĞĞ§ÆÚÏŞ
  */
 static void schedule_temp_pass_data(unsigned char suc_flag, unsigned char pass_ser, 
                                unsigned char pass_valcnt, unsigned char pass_sta, 
@@ -284,46 +284,46 @@ static void schedule_temp_pass_data(unsigned char suc_flag, unsigned char pass_s
                                const unsigned char pass[], unsigned char pass_len,
                                unsigned char schedule_num, const unsigned char schedule_data[])
 { 
-    //#error "è¯·è‡ªè¡Œå®Œæˆå¸¦scheduleåˆ—è¡¨ä¸´æ—¶å¯†ç ä¿¡æ¯å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³É´øscheduleÁĞ±íÁÙÊ±ÃÜÂëĞÅÏ¢´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
 
     /*
-    suc_flagä¸ºæ˜¯å¦è·å–å¯†ç æˆåŠŸæ ‡å¿—ï¼Œä¸º 0 è¡¨ç¤ºå¤±è´¥ï¼Œä¸º 1 è¡¨ç¤ºæˆåŠŸ
+    suc_flagÎªÊÇ·ñ»ñÈ¡ÃÜÂë³É¹¦±êÖ¾£¬Îª 0 ±íÊ¾Ê§°Ü£¬Îª 1 ±íÊ¾³É¹¦
    */
     /*
-    æ³¨ï¼šè·å–å¤šç»„å¯†ç æˆåŠŸï¼Œè¯¥å‡½æ•°ä¼šè¿›å…¥å¤šæ¬¡ï¼Œ
-        ç›´è‡³å°†å¤šç»„ä¸´æ—¶å¯†ç å…¨éƒ¨è·å–å®Œç»“æŸï¼›
-        è‹¥å¤±è´¥åˆ™åªè¿›å…¥ä¸€æ¬¡ã€‚
+    ×¢£º»ñÈ¡¶à×éÃÜÂë³É¹¦£¬¸Ãº¯Êı»á½øÈë¶à´Î£¬
+        Ö±ÖÁ½«¶à×éÁÙÊ±ÃÜÂëÈ«²¿»ñÈ¡Íê½áÊø£»
+        ÈôÊ§°ÜÔòÖ»½øÈëÒ»´Î¡£
    */
     if (suc_flag == 1) {
-        //è·å–ä¸´æ—¶å¯†ç æ•°æ®æˆåŠŸ
+        //»ñÈ¡ÁÙÊ±ÃÜÂëÊı¾İ³É¹¦
         /*
-        pass_serä¸ºå¯†ç ç¼–å·
-        pass_valcntä¸ºå¯†ç æœ‰æ•ˆæ¬¡æ•°
-        pass_staä¸ºå¯†ç å½“å‰çŠ¶æ€
+        pass_serÎªÃÜÂë±àºÅ
+        pass_valcntÎªÃÜÂëÓĞĞ§´ÎÊı
+        pass_staÎªÃÜÂëµ±Ç°×´Ì¬
 
-        gl_startä¸ºå¯†ç ç”Ÿæ•ˆæ—¥æœŸæ ¼æ—æ—¶é—´
-        gl_start[0]ä¸ºå¹´ä»½ , 0x00 è¡¨ ç¤º2000 å¹´
-        gl_start[1]ä¸ºæœˆä»½ï¼Œä» 1 å¼€å§‹åˆ°12 ç»“æŸ
-        gl_start[2]ä¸ºæ—¥æœŸï¼Œä» 1 å¼€å§‹åˆ°31 ç»“æŸ
-        gl_start[3]ä¸ºæ—¶é’Ÿï¼Œä» 0 å¼€å§‹åˆ°23 ç»“æŸ
-        gl_start[4]ä¸ºåˆ†é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-        gl_start[5]ä¸ºç§’é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-        gl_endä¸ºå¯†ç æˆªè‡³æ—¥æœŸæ ¼æ—æ—¶é—´ï¼ŒåŒgl_start
+        gl_startÎªÃÜÂëÉúĞ§ÈÕÆÚ¸ñÁÖÊ±¼ä
+        gl_start[0]ÎªÄê·İ , 0x00 ±í Ê¾2000 Äê
+        gl_start[1]ÎªÔÂ·İ£¬´Ó 1 ¿ªÊ¼µ½12 ½áÊø
+        gl_start[2]ÎªÈÕÆÚ£¬´Ó 1 ¿ªÊ¼µ½31 ½áÊø
+        gl_start[3]ÎªÊ±ÖÓ£¬´Ó 0 ¿ªÊ¼µ½23 ½áÊø
+        gl_start[4]Îª·ÖÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+        gl_start[5]ÎªÃëÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+        gl_endÎªÃÜÂë½ØÖÁÈÕÆÚ¸ñÁÖÊ±¼ä£¬Í¬gl_start
 
-        passæŒ‡å‘ä¸´æ—¶å¯†ç æ•°æ®(ascllç )ï¼Œé•¿åº¦pass_len
+        passÖ¸ÏòÁÙÊ±ÃÜÂëÊı¾İ(ascllÂë)£¬³¤¶Èpass_len
         */
         
-        //æ­¤å¤„æ·»åŠ å¯†ç æ•°æ®å¤„ç†
+        //´Ë´¦Ìí¼ÓÃÜÂëÊı¾İ´¦Àí
         
         schedule_data_process(schedule_num, schedule_data);
     }else {
-        //è·å–ä¸´æ—¶å¯†ç æ•°æ®å‡ºé”™
+        //»ñÈ¡ÁÙÊ±ÃÜÂëÊı¾İ³ö´í
     }
 }
 
 /**
- * @brief  MCUè¯·æ±‚ä¸´æ—¶å¯†ç (å¸¦scheduleåˆ—è¡¨)è¿”å›
- * @param[in] {data} è¿”å›æ•°æ®
+ * @brief  MCUÇëÇóÁÙÊ±ÃÜÂë(´øscheduleÁĞ±í)·µ»Ø
+ * @param[in] {data} ·µ»ØÊı¾İ
  * @return Null
  * @note   Null
  */
@@ -351,18 +351,18 @@ void schedule_temp_pass_handle(const unsigned char data[])
 
 #ifdef OFFLINE_DYN_PW_ENABLE
 /**
- * @brief  ç¦»çº¿åŠ¨æ€å¯†ç 
- * @param[in] {green_time} æ ¼æ—æ—¶é—´
-                green_time[0]ä¸ºå¹´ä»½ï¼Œ0x00 è¡¨ç¤º2000 å¹´
-                green_time[1]ä¸ºæœˆä»½ï¼Œä» 1 å¼€å§‹åˆ°12 ç»“æŸ
-                green_time[2]ä¸ºæ—¥æœŸï¼Œä» 1 å¼€å§‹åˆ°31 ç»“æŸ
-                green_time[3]ä¸ºæ—¶é’Ÿï¼Œä» 0 å¼€å§‹åˆ°23 ç»“æŸ
-                green_time[4]ä¸ºåˆ†é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
-                green_time[5]ä¸ºç§’é’Ÿï¼Œä» 0 å¼€å§‹åˆ°59 ç»“æŸ
- * @param[in] {pw} ç¦»çº¿åŠ¨æ€å¯†ç 
- * @param[in] {pw_len} ç¦»çº¿åŠ¨æ€å¯†ç é•¿åº¦
+ * @brief  ÀëÏß¶¯Ì¬ÃÜÂë
+ * @param[in] {green_time} ¸ñÁÖÊ±¼ä
+                green_time[0]ÎªÄê·İ£¬0x00 ±íÊ¾2000 Äê
+                green_time[1]ÎªÔÂ·İ£¬´Ó 1 ¿ªÊ¼µ½12 ½áÊø
+                green_time[2]ÎªÈÕÆÚ£¬´Ó 1 ¿ªÊ¼µ½31 ½áÊø
+                green_time[3]ÎªÊ±ÖÓ£¬´Ó 0 ¿ªÊ¼µ½23 ½áÊø
+                green_time[4]Îª·ÖÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+                green_time[5]ÎªÃëÖÓ£¬´Ó 0 ¿ªÊ¼µ½59 ½áÊø
+ * @param[in] {pw} ÀëÏß¶¯Ì¬ÃÜÂë
+ * @param[in] {pw_len} ÀëÏß¶¯Ì¬ÃÜÂë³¤¶È
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨offline_dynamic_password_resultå‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚoffline_dynamic_password_resultº¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void offline_dynamic_password(unsigned char green_time[],unsigned char pw[],unsigned char pw_len)
 {
@@ -376,39 +376,39 @@ void offline_dynamic_password(unsigned char green_time[],unsigned char pw[],unsi
 }
 
 /**
- * @brief  ç¦»çº¿åŠ¨æ€å¯†ç ç»“æœ
- * @param[in] {result_data} ç»“æœæ•°æ®
+ * @brief  ÀëÏß¶¯Ì¬ÃÜÂë½á¹û
+ * @param[in] {result_data} ½á¹ûÊı¾İ
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨offline_dynamic_passwordå‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃoffline_dynamic_passwordº¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void offline_dynamic_password_result(unsigned char result_data[])
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆç¦»çº¿åŠ¨æ€å¯†ç ç»“æœå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
-    unsigned char result; //å¯†ç æ­£ç¡®æ€§
-    unsigned char type; //å¯†ç ç±»å‹
-    unsigned char decode_len; //è§£å¯†åæ•°æ®é•¿åº¦
-    unsigned char decode[DECODE_MAX_LEN]; //è§£å¯†æ•°æ®
+    //#error "Çë×ÔĞĞÍê³ÉÀëÏß¶¯Ì¬ÃÜÂë½á¹û´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
+    unsigned char result; //ÃÜÂëÕıÈ·ĞÔ
+    unsigned char type; //ÃÜÂëÀàĞÍ
+    unsigned char decode_len; //½âÃÜºóÊı¾İ³¤¶È
+    unsigned char decode[DECODE_MAX_LEN]; //½âÃÜÊı¾İ
     
     result = result_data[0];
     if(0 == result) {
-        //æ­£ç¡®
+        //ÕıÈ·
     }else {
-        //é”™è¯¯
-        return; //é”™è¯¯æ—¶ï¼Œæ— åç»­æ•°æ®
+        //´íÎó
+        return; //´íÎóÊ±£¬ÎŞºóĞøÊı¾İ
     }
     
     type = result_data[1];
     switch(type) {
         case 0:
-            //é™æ—¶å¼€é—¨å¯†ç 
+            //ÏŞÊ±¿ªÃÅÃÜÂë
         break;
         
         case 1:
-            //å•æ¬¡å¼€é—¨å¯†ç 
+            //µ¥´Î¿ªÃÅÃÜÂë
         break;
         
         case 2:
-            //æ¸…é™¤å¯†ç 
+            //Çå³ıÃÜÂë
         break;
         
         default:
@@ -418,19 +418,19 @@ void offline_dynamic_password_result(unsigned char result_data[])
     decode_len = result_data[2];
     my_memcpy(decode,&result_data[3],decode_len);
     
-    //å¯æ·»åŠ è§£å¯†æ•°æ®å¤„ç†
+    //¿ÉÌí¼Ó½âÃÜÊı¾İ´¦Àí
     
 }
 #endif
 
 #ifdef PICTURE_UPLOAD_ENABLE
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ äº‹ä»¶çŠ¶æ€é€šçŸ¥
- * @param[in] {event} äº‹ä»¶ä¿¡æ¯ç¼–ç 
- * @param[in] {picture} æ˜¯å¦æºå¸¦å›¾ç‰‡ä¿¡æ¯
- * @param[in] {pic_num} ä¸Šä¼ å›¾ç‰‡å¼ æ•°(<=10)
+ * @brief  Í¼Æ¬ÉÏ´«ÊÂ¼ş×´Ì¬Í¨Öª
+ * @param[in] {event} ÊÂ¼şĞÅÏ¢±àÂë
+ * @param[in] {picture} ÊÇ·ñĞ¯´øÍ¼Æ¬ĞÅÏ¢
+ * @param[in] {pic_num} ÉÏ´«Í¼Æ¬ÕÅÊı(<=10)
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ picture_event_state_notice_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ picture_event_state_notice_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void picture_event_state_notice(unsigned short event, unsigned char picture, unsigned char pic_num)
 {
@@ -445,31 +445,31 @@ void picture_event_state_notice(unsigned short event, unsigned char picture, uns
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ äº‹ä»¶çŠ¶æ€é€šçŸ¥ç»“æœ
- * @param[in] {result} ç»“æœ
+ * @brief  Í¼Æ¬ÉÏ´«ÊÂ¼ş×´Ì¬Í¨Öª½á¹û
+ * @param[in] {result} ½á¹û
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨ picture_event_state_notice å‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃ picture_event_state_notice º¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void picture_event_state_notice_result(unsigned char result)
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆå›¾ç‰‡ä¸Šä¼ æ—¶é—´çŠ¶æ€é€šçŸ¥ç»“æœå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³ÉÍ¼Æ¬ÉÏ´«Ê±¼ä×´Ì¬Í¨Öª½á¹û´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     if (0 == result) {
-        //ä¿¡æ¯æ¥æ”¶æˆåŠŸ
+        //ĞÅÏ¢½ÓÊÕ³É¹¦
     }else {
-        //ä¿¡æ¯æ¥æ”¶å¤±è´¥
+        //ĞÅÏ¢½ÓÊÕÊ§°Ü
     }
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ 
- * @param[in] {p_time} æ—¶é—´æ•°æ®
- * @param[in] {picture_id} å›¾ç‰‡idå·
- * @param[in] {pic_total_num} å›¾ç‰‡æ€»åŒ…æ•°
- * @param[in] {pic_num} å½“å‰åŒ…åºå·ï¼ˆä»0å¼€å§‹ï¼‰
- * @param[in] {p_pic_data} å›¾ç‰‡æ•°æ®
- * @param[in] {pic_data_len} å›¾ç‰‡æ•°æ®é•¿åº¦
+ * @brief  Í¼Æ¬ÉÏ´«
+ * @param[in] {p_time} Ê±¼äÊı¾İ
+ * @param[in] {picture_id} Í¼Æ¬idºÅ
+ * @param[in] {pic_total_num} Í¼Æ¬×Ü°üÊı
+ * @param[in] {pic_num} µ±Ç°°üĞòºÅ£¨´Ó0¿ªÊ¼£©
+ * @param[in] {p_pic_data} Í¼Æ¬Êı¾İ
+ * @param[in] {pic_data_len} Í¼Æ¬Êı¾İ³¤¶È
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ picture_upload_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ picture_upload_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void picture_upload(unsigned char p_time[], unsigned short picture_id, unsigned short pic_total_num, unsigned short pic_num, \
                                             unsigned char p_pic_data[], unsigned char pic_data_len)
@@ -489,38 +489,38 @@ void picture_upload(unsigned char p_time[], unsigned short picture_id, unsigned 
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ ç»“æœ
- * @param[in] {result} ç»“æœ
+ * @brief  Í¼Æ¬ÉÏ´«½á¹û
+ * @param[in] {result} ½á¹û
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨ picture_upload å‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃ picture_upload º¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void picture_upload_result(unsigned char result)
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆå›¾ç‰‡ä¸Šä¼ ç»“æœå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³ÉÍ¼Æ¬ÉÏ´«½á¹û´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     if (0 == result) {
-        //ä¿¡æ¯æ¥æ”¶æˆåŠŸ
+        //ĞÅÏ¢½ÓÊÕ³É¹¦
     }else {
-        //ä¿¡æ¯æ¥æ”¶å¤±è´¥
+        //ĞÅÏ¢½ÓÊÕÊ§°Ü
     }
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ ç»“æœåé¦ˆ
- * @param[in] {p_value} ç»“æœæ•°æ®
- * @param[in] {data_len} ç»“æœæ•°æ®é•¿åº¦
+ * @brief  Í¼Æ¬ÉÏ´«½á¹û·´À¡
+ * @param[in] {p_value} ½á¹ûÊı¾İ
+ * @param[in] {data_len} ½á¹ûÊı¾İ³¤¶È
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œå¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞ¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void picture_upload_return(unsigned char p_value[], unsigned short data_len)
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆå›¾ç‰‡ä¸Šä¼ ç»“æœåé¦ˆå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³ÉÍ¼Æ¬ÉÏ´«½á¹û·´À¡´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     
-    unsigned short pic_id; //å›¾ç‰‡idå·
-    unsigned char p_time[6]; //å½“å‰å›¾ç‰‡ä¸Šä¼ çš„æ—¶é—´
-    unsigned char upload_result; //å›¾ç‰‡ä¸Šä¼ ç»“æœ
+    unsigned short pic_id; //Í¼Æ¬idºÅ
+    unsigned char p_time[6]; //µ±Ç°Í¼Æ¬ÉÏ´«µÄÊ±¼ä
+    unsigned char upload_result; //Í¼Æ¬ÉÏ´«½á¹û
     
     if(9 != data_len) {
-        //æ•°æ®é•¿åº¦é”™è¯¯
+        //Êı¾İ³¤¶È´íÎó
         return;
     }
     
@@ -529,29 +529,29 @@ void picture_upload_return(unsigned char p_value[], unsigned short data_len)
     upload_result = p_value[8];
     
     /*
-    //è¯·è‡ªè¡Œå¤„ç†åé¦ˆç»“æœ
-    //pic_idä¸ºå›¾ç‰‡idå·   
-    //p_time[6]ä¸­æ˜¯å½“å‰å›¾ç‰‡ä¸Šä¼ çš„æ—¶é—´ï¼Œp_time[0]~p_time[5]ä¾æ¬¡æ˜¯ å¹´ æœˆ æ—¥ æ—¶ åˆ† ç§’
+    //Çë×ÔĞĞ´¦Àí·´À¡½á¹û
+    //pic_idÎªÍ¼Æ¬idºÅ   
+    //p_time[6]ÖĞÊÇµ±Ç°Í¼Æ¬ÉÏ´«µÄÊ±¼ä£¬p_time[0]~p_time[5]ÒÀ´ÎÊÇ Äê ÔÂ ÈÕ Ê± ·Ö Ãë
     */
     switch(upload_result) {
         case 0:
-            //å›¾ç‰‡ä¸Šä¼ æˆåŠŸ
+            //Í¼Æ¬ÉÏ´«³É¹¦
         break;
         
         case 1:
-            //ç½‘ç»œæ–­å¼€æ— æ³•ä¸Šä¼ æˆåŠŸ
+            //ÍøÂç¶Ï¿ªÎŞ·¨ÉÏ´«³É¹¦
         break;
         
         case 2:
-            //å›¾ç‰‡å¤ªå¤§è¶…å‡º40k
+            //Í¼Æ¬Ì«´ó³¬³ö40k
         break;
         
         case 3:
-            //è¶…æ—¶æœªæ”¶åˆ°mcuçš„å›¾ç‰‡ä¿¡æ¯
+            //³¬Ê±Î´ÊÕµ½mcuµÄÍ¼Æ¬ĞÅÏ¢
         break;
         
         case 4:
-            //å…¶å®ƒåŸå› å¤±è´¥
+            //ÆäËüÔ­ÒòÊ§°Ü
         break;
         
         default:break;
@@ -559,19 +559,19 @@ void picture_upload_return(unsigned char p_value[], unsigned short data_len)
     
     unsigned char length = 0;
     
-    //è¯·åˆ¤æ–­æ˜¯å¦è¿˜æœ‰åç»­å›¾ç‰‡ä¸Šä¼ ï¼Œé€‰æ‹©å›å¤æ•°æ®
+    //ÇëÅĞ¶ÏÊÇ·ñ»¹ÓĞºóĞøÍ¼Æ¬ÉÏ´«£¬Ñ¡Ôñ»Ø¸´Êı¾İ
     
-    length = set_wifi_uart_byte(length, 0); //æ— åç»­å›¾ç‰‡ä¸Šä¼ 
-    //length = set_wifi_uart_byte(length, 1); //æœ‰åç»­å›¾ç‰‡ä¸Šä¼ 
+    length = set_wifi_uart_byte(length, 0); //ÎŞºóĞøÍ¼Æ¬ÉÏ´«
+    //length = set_wifi_uart_byte(length, 1); //ÓĞºóĞøÍ¼Æ¬ÉÏ´«
     
     wifi_uart_write_frame(PICTURE_UPLOAD_RETURN_CMD,length);
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ çŠ¶æ€è·å–
+ * @brief  Í¼Æ¬ÉÏ´«×´Ì¬»ñÈ¡
  * @param  Null
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ picture_upload_state_get_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ picture_upload_state_get_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void picture_upload_state_get(void)
 {
@@ -579,22 +579,22 @@ void picture_upload_state_get(void)
 }
 
 /**
- * @brief  å›¾ç‰‡ä¸Šä¼ çŠ¶æ€è·å–ç»“æœ
- * @param[in] {p_value} ç»“æœæ•°æ®
- * @param[in] {data_len} ç»“æœæ•°æ®é•¿åº¦
+ * @brief  Í¼Æ¬ÉÏ´«×´Ì¬»ñÈ¡½á¹û
+ * @param[in] {p_value} ½á¹ûÊı¾İ
+ * @param[in] {data_len} ½á¹ûÊı¾İ³¤¶È
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨ picture_upload_state_get å‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃ picture_upload_state_get º¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void picture_upload_state_get_result(unsigned char p_value[], unsigned short data_len)
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆå›¾ç‰‡ä¸Šä¼ çŠ¶æ€è·å–ç»“æœå¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
-    unsigned char pic_upload_state; //å›¾ç‰‡ä¸Šä¼ çŠ¶æ€
-    unsigned short event_infor; //äº‹ä»¶ä¿¡æ¯ç¼–ç 
-    unsigned short pic_id; //å›¾ç‰‡idå·
-    unsigned char p_time[6]; //å½“å‰å›¾ç‰‡ä¸Šä¼ çš„æ—¶é—´
+    //#error "Çë×ÔĞĞÍê³ÉÍ¼Æ¬ÉÏ´«×´Ì¬»ñÈ¡½á¹û´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
+    unsigned char pic_upload_state; //Í¼Æ¬ÉÏ´«×´Ì¬
+    unsigned short event_infor; //ÊÂ¼şĞÅÏ¢±àÂë
+    unsigned short pic_id; //Í¼Æ¬idºÅ
+    unsigned char p_time[6]; //µ±Ç°Í¼Æ¬ÉÏ´«µÄÊ±¼ä
     
     if(11 != data_len) {
-        //æ•°æ®é•¿åº¦é”™è¯¯
+        //Êı¾İ³¤¶È´íÎó
         return;
     }
     
@@ -603,7 +603,7 @@ void picture_upload_state_get_result(unsigned char p_value[], unsigned short dat
     pic_id = (p_value[3] << 8) | p_value[4];
     my_memcpy(p_time, &p_value[5], 6);
     
-    //è¯·åœ¨æ­¤å¤„ç†è·å–åˆ°çš„æ•°æ®
+    //ÇëÔÚ´Ë´¦Àí»ñÈ¡µ½µÄÊı¾İ
     
 }
 
@@ -611,23 +611,23 @@ void picture_upload_state_get_result(unsigned char p_value[], unsigned short dat
 
 #ifdef LOCK_KEEP_ALIVE
 /**
- * @brief  ä¿æ´»IOå”¤é†’
+ * @brief  ±£»îIO»½ĞÑ
  * @param[in] Null
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œå®ç°é€»è¾‘ä»£ç 
+ * @note   MCUĞèÒª×ÔĞĞÊµÏÖÂß¼­´úÂë
  */
 void keep_alive_awake(void)
 {
-    //#error "è¯·åœ¨æ­¤å®Œæˆä¿æ´»IOå”¤é†’æ“ä½œä»£ç ï¼Œä»¥å”¤é†’æ¨¡å—ï¼Œå¹¶åˆ é™¤è¯¥è¡Œ"
-    //æ­¤å‡½æ•°ç”¨äºMCUå”¤é†’æ¨¡å—ï¼Œå”¤é†’æ–¹å¼ä¸ºIOä½ç”µå¹³å”¤é†’ï¼Œå”¤é†’åä¿æŒä½ç”µå¹³ï¼Œå…·ä½“IOè¯·å‚è€ƒç¡¬ä»¶è®¾è®¡ã€‚
+    //#error "ÇëÔÚ´ËÍê³É±£»îIO»½ĞÑ²Ù×÷´úÂë£¬ÒÔ»½ĞÑÄ£¿é£¬²¢É¾³ı¸ÃĞĞ"
+    //´Ëº¯ÊıÓÃÓÚMCU»½ĞÑÄ£¿é£¬»½ĞÑ·½Ê½ÎªIOµÍµçÆ½»½ĞÑ£¬»½ĞÑºó±£³ÖµÍµçÆ½£¬¾ßÌåIOÇë²Î¿¼Ó²¼şÉè¼Æ¡£
     
 }
 
 /**
- * @brief  è·å–WIFIçŠ¶æ€
+ * @brief  »ñÈ¡WIFI×´Ì¬
  * @param  Null
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ get_wifi_state_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ get_wifi_state_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void mcu_get_wifi_state(void)
 {
@@ -635,41 +635,41 @@ void mcu_get_wifi_state(void)
 }
 
 /**
- * @brief  mcuæ”¶åˆ°WiFiçŠ¶æ€
- * @param[in] {p_data} æ•°æ®
+ * @brief  mcuÊÕµ½WiFi×´Ì¬
+ * @param[in] {p_data} Êı¾İ
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨ mcu_get_wifi_state å‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃ mcu_get_wifi_state º¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 void get_wifi_state_result(const unsigned char p_data[])
 {
-    //#error "è¯·è‡ªè¡Œå®ŒæˆwifiçŠ¶æ€å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³Éwifi×´Ì¬´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     switch(p_data[0]) {
         case 0x00:
-            //çŠ¶æ€1  smartconfigé…ç½®çŠ¶æ€
+            //×´Ì¬1  smartconfigÅäÖÃ×´Ì¬
         break;
         
         case 0x01:
-            //çŠ¶æ€2  APé…ç½®çŠ¶æ€
+            //×´Ì¬2  APÅäÖÃ×´Ì¬
         break;
         
         case 0x02:
-            //çŠ¶æ€3  WIFIå·²é…ç½®ä½†æœªè¿ä¸Šè·¯ç”±å™¨
+            //×´Ì¬3  WIFIÒÑÅäÖÃµ«Î´Á¬ÉÏÂ·ÓÉÆ÷
         break;
         
         case 0x03:
-            //çŠ¶æ€4  WIFIå·²é…ç½®ä¸”è¿ä¸Šè·¯ç”±å™¨
+            //×´Ì¬4  WIFIÒÑÅäÖÃÇÒÁ¬ÉÏÂ·ÓÉÆ÷
         break;
         
         case 0x04:
-            //çŠ¶æ€5  å·²è¿ä¸Šè·¯ç”±å™¨ä¸”è¿æ¥åˆ°äº‘ç«¯
+            //×´Ì¬5  ÒÑÁ¬ÉÏÂ·ÓÉÆ÷ÇÒÁ¬½Óµ½ÔÆ¶Ë
         break;
         
         case 0x05:
-            //çŠ¶æ€6  WIFIè®¾å¤‡å¤„äºä½åŠŸè€—æ¨¡å¼
+            //×´Ì¬6  WIFIÉè±¸´¦ÓÚµÍ¹¦ºÄÄ£Ê½
         break;
         
         case 0xff:
-            //æ— æ•ˆçŠ¶æ€  åˆå§‹åŒ–æœªå®Œæˆ
+            //ÎŞĞ§×´Ì¬  ³õÊ¼»¯Î´Íê³É
         break;
         
         default:break;
@@ -677,11 +677,11 @@ void get_wifi_state_result(const unsigned char p_data[])
     
     switch(p_data[1]) {
         case 0x00:
-            //æœªæ¿€æ´»
+            //Î´¼¤»î
         break;
         
         case 0x01:
-            //å·²æ¿€æ´»
+            //ÒÑ¼¤»î
         break;
         
         default:break;
@@ -692,15 +692,15 @@ void get_wifi_state_result(const unsigned char p_data[])
 
 #ifdef PHOTO_LOCK_PICTURE_UPLOAD_ENABLE
 /**
- * @brief  MCUå‘é€äº‹ä»¶è§¦å‘æŠ“æ‹é€šçŸ¥
- * @param[in] {event_infor_num} äº‹ä»¶ä¿¡æ¯ç¼–ç 
- * @param[in] {capture_flag} æ˜¯å¦æŠ“æ‹å›¾ç‰‡
- * @param[in] {capture_type} æŠ“æ‹ç±»å‹
- * @param[in] {capture_num} æŠ“æ‹å›¾ç‰‡å¼ æ•°
- * @param[in] {time_flag} æ—¶é—´æ ‡å¿—ä½  0:ä¸å¸¦æ—¶é—´ 1:æœ¬åœ°æ—¶é—´ 2:æ ¼æ—æ—¶é—´
- * @param[in] {p_time} æ—¶é—´æ•°æ®
+ * @brief  MCU·¢ËÍÊÂ¼ş´¥·¢×¥ÅÄÍ¨Öª
+ * @param[in] {event_infor_num} ÊÂ¼şĞÅÏ¢±àÂë
+ * @param[in] {capture_flag} ÊÇ·ñ×¥ÅÄÍ¼Æ¬
+ * @param[in] {capture_type} ×¥ÅÄÀàĞÍ
+ * @param[in] {capture_num} ×¥ÅÄÍ¼Æ¬ÕÅÊı
+ * @param[in] {time_flag} Ê±¼ä±êÖ¾Î»  0:²»´øÊ±¼ä 1:±¾µØÊ±¼ä 2:¸ñÁÖÊ±¼ä
+ * @param[in] {p_time} Ê±¼äÊı¾İ
  * @return Null
- * @note   MCUéœ€è¦è‡ªè¡Œè°ƒç”¨åï¼Œå¯åœ¨ event_trigger_capture_notice_result å‡½æ•°ä¸­å¯¹ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒª×ÔĞĞµ÷ÓÃºó£¬¿ÉÔÚ event_trigger_capture_notice_result º¯ÊıÖĞ¶Ô½á¹û½øĞĞ´¦Àí
  */
 void mcu_event_trigger_capture_notice(unsigned short event_infor_num, unsigned char capture_flag, unsigned char capture_type,
                                         unsigned char capture_num, unsigned char time_flag, unsigned char p_time[])
@@ -721,31 +721,31 @@ void mcu_event_trigger_capture_notice(unsigned short event_infor_num, unsigned c
 
 
 /**
- * @brief  äº‹ä»¶è§¦å‘æŠ“æ‹é€šçŸ¥æ•°æ®å¤„ç†
- * @param[in] {result} ç»“æœæ•°æ®
+ * @brief  ÊÂ¼ş´¥·¢×¥ÅÄÍ¨ÖªÊı¾İ´¦Àí
+ * @param[in] {result} ½á¹ûÊı¾İ
  * @return Null
- * @note   MCUéœ€è¦å…ˆè‡ªè¡Œè°ƒç”¨ mcu_event_trigger_capture_notice å‡½æ•°åï¼Œåœ¨æ­¤å‡½æ•°å¯¹æ¥æ”¶çš„ç»“æœè¿›è¡Œå¤„ç†
+ * @note   MCUĞèÒªÏÈ×ÔĞĞµ÷ÓÃ mcu_event_trigger_capture_notice º¯Êıºó£¬ÔÚ´Ëº¯Êı¶Ô½ÓÊÕµÄ½á¹û½øĞĞ´¦Àí
  */
 static void event_trigger_capture_notice_result(unsigned char result)
 {
-    //#error "è¯·è‡ªè¡Œå®Œæˆäº‹ä»¶è§¦å‘æŠ“æ‹é€šçŸ¥æ•°æ®å¤„ç†ä»£ç ,å¹¶åˆ é™¤è¯¥è¡Œ"
+    //#error "Çë×ÔĞĞÍê³ÉÊÂ¼ş´¥·¢×¥ÅÄÍ¨ÖªÊı¾İ´¦Àí´úÂë,²¢É¾³ı¸ÃĞĞ"
     
     if(0 == result) {
-        //ä¿¡æ¯æ¥æ”¶æˆåŠŸ
+        //ĞÅÏ¢½ÓÊÕ³É¹¦
     }else {
-        //ä¿¡æ¯æ¥æ”¶å¤±è´¥
+        //ĞÅÏ¢½ÓÊÕÊ§°Ü
     }
 }
 
 /**
- * @brief  æ‹ç…§é—¨é”å›¾ç‰‡ä¸Šä¼ ç›¸å…³åŠŸèƒ½
- * @param[in] {p_data} æ•°æ®
+ * @brief  ÅÄÕÕÃÅËøÍ¼Æ¬ÉÏ´«Ïà¹Ø¹¦ÄÜ
+ * @param[in] {p_data} Êı¾İ
  * @return Null
  * @note   
  */
 void photo_lock_picture_upload_func(const unsigned char p_data[])
 {
-    event_trigger_capture_notice_result(p_data[0]); //äº‹ä»¶è§¦å‘æŠ“æ‹é€šçŸ¥
+    event_trigger_capture_notice_result(p_data[0]); //ÊÂ¼ş´¥·¢×¥ÅÄÍ¨Öª
 }
 #endif
 
